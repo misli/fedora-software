@@ -17,7 +17,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%mz8&ztzqm3=4&u#(=0btms&+bag6h*pv=m)4pw_=q+c7g-j+d'
+try:
+    with open(os.path.join(BASE_DIR, 'data', 'secret_key')) as f:
+        SECRET_KEY = f.read()
+except IOError:
+    with open(os.path.join(BASE_DIR, 'data', 'secret_key'), 'w') as f:
+        from django.utils.crypto import get_random_string
+        SECRET_KEY = get_random_string(50,
+            'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
+        f.write(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
