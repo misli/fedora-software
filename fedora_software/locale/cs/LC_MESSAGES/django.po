@@ -1,0 +1,23 @@
+# Czech translation of Fedora Software.
+# Copyright (C) Jakub Dornak
+# This file is distributed under the same license as the fedora-software package.
+# Jakub Dornak <jdornak@redhat.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fedora-software\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-20 14:37+0200\n"
+"Last-Translator: Jakub Dornak <jdornak@redhat.com>\n"
+"Language: Czech\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/home.html:4
+msgid "Welcome to Fedora Software"
+msgstr "Vítejte na webu Fedora Software"
+
+#: templates/home.html:7
+msgid "Hello, world!"
+msgstr "Funguje to!"
