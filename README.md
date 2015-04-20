@@ -20,3 +20,11 @@ Run development server:
 
     ./manage.py runserver
 
+Update translations:
+
+    pushd fedora_software
+        django-admin makemessages -l cs
+        vim locale/cs/LC_MESSAGES/django.po
+        django-admin compilemessages
+    popd
+
