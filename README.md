@@ -20,6 +20,16 @@ Run development server:
 
     ./manage.py runserver
 
+Import data form appstream-data
+
+    ./manage.py updatedb
+
+
+Translations
+------------
+
+https://docs.djangoproject.com/en/1.8/topics/i18n/translation/
+
 Update translations:
 
     pushd fedora_software
