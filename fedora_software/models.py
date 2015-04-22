@@ -1,8 +1,13 @@
 from django.db import models
 
 
+class Origin(models.Model):
+    origin  = models.CharField(max_length=100, unique=True)
+
+
+
 class Category(models.Model):
-    pass
+    category    = models.CharField(max_length=100)
 
 
 
@@ -12,11 +17,12 @@ class CategoryName(models.Model):
     name        = models.CharField(max_length=100)
 
     class Meta:
-        unique_together     = [('category', 'lang')]
+        unique_together = [('category', 'lang')]
 
 
 
 class Component(models.Model):
+    origin      = models.ForeignKey(Origin, related_name='components')
     type        = models.CharField(max_length=100)
     type_id     = models.CharField(max_length=100)
     pkgname     = models.CharField(max_length=100)
@@ -27,31 +33,31 @@ class Component(models.Model):
 
 class ComponentName(models.Model):
     component   = models.ForeignKey(Component, related_name='names')
-    lang        = models.CharField(max_length=100)
+    lang        = models.CharField(max_length=100, null=True)
     name        = models.CharField(max_length=100)
 
     class Meta:
-        unique_together     = [('component', 'lang')]
+        unique_together = [('component', 'lang')]
 
 
 
 class ComponentSummary(models.Model):
     component   = models.ForeignKey(Component, related_name='summaries')
-    lang        = models.CharField(max_length=100)
-    summary     = models.CharField(max_length=100)
+    lang        = models.CharField(max_length=100, null=True)
+    summary     = models.TextField()
 
     class Meta:
-        unique_together     = [('component', 'lang')]
+        unique_together = [('component', 'lang')]
 
 
 
 class ComponentDescription(models.Model):
     component   = models.ForeignKey(Component, related_name='descriptions')
-    lang        = models.CharField(max_length=100)
+    lang        = models.CharField(max_length=100, null=True)
     description = models.TextField()
 
     class Meta:
-        unique_together     = [('component', 'lang')]
+        unique_together = [('component', 'lang')]
 
 
 
@@ -59,8 +65,8 @@ class ComponentIcon(models.Model):
     component   = models.ForeignKey(Component, related_name='icons')
     type        = models.CharField(max_length=100)
     icon        = models.CharField(max_length=100)
-    height      = models.IntegerField()
-    width       = models.IntegerField()
+    height      = models.IntegerField(null=True)
+    width       = models.IntegerField(null=True)
 
 
 
@@ -82,7 +88,7 @@ class ComponentScreenshotImage(models.Model):
     type        = models.CharField(max_length=100, null=True)
     height      = models.IntegerField(null=True)
     width       = models.IntegerField(null=True)
-    url         = models.CharField(max_length=1000)
+    image       = models.CharField(max_length=1000)
 
 
 
@@ -106,5 +112,5 @@ class ComponentMetadata(models.Model):
     value       = models.CharField(max_length=100, null=True)
 
     class Meta:
-        unique_together     = [('component', 'key')]
+        unique_together = [('component', 'key')]
 
