@@ -55,6 +55,9 @@ class Command(LoggingBaseCommand):
                 xml_file = xml_file, e = e, manage = os.path.basename(sys.argv[0])
                 ))
 
+        component_nodes_count = len(tree)
+        logger.info('Parsed {} component nodes'.format(component_nodes_count))
+
         try:
             o_origin = tree.attrib['origin']
         except:
@@ -76,7 +79,9 @@ class Command(LoggingBaseCommand):
                 except:
                     c_project_license = None
 
-                logger.info('Importing component {}/{}'.format(c_type, c_type_id))
+                logger.info('Importing component {}/{} ({}/{})'.format(
+                    c_type, c_type_id, len(component_ids), component_nodes_count,
+                ))
 
                 # create component
                 c = Component.objects.get_or_create(
