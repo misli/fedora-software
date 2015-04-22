@@ -91,60 +91,70 @@ class Command(LoggingBaseCommand):
 
                 # create names
                 c.names.all().delete()
-                for c_name_node in c_node.findall('name'):
+                for name_node in c_node.findall('name'):
                     c.names.add(ComponentName(
-                        lang = c_name_node.attrib.get(lang_attr),
-                        name = c_name_node.text,
+                        lang = name_node.attrib.get(lang_attr),
+                        name = name_node.text,
                     ))
 
                 # create summaries
                 c.summaries.all().delete()
-                for c_summary_node in c_node.findall('summary'):
+                for summary_node in c_node.findall('summary'):
                     c.summaries.add(ComponentSummary(
-                        lang = c_summary_node.attrib.get(lang_attr),
-                        summary = c_summary_node.text,
+                        lang = summary_node.attrib.get(lang_attr),
+                        summary = summary_node.text,
                     ))
 
                 # create descriptions
                 c.descriptions.all().delete()
-                for c_description_node in c_node.findall('description'):
+                for description_node in c_node.findall('description'):
                     c.descriptions.add(ComponentDescription(
-                        lang = c_description_node.attrib.get(lang_attr),
-                        description = c_description_node.text or '',
+                        lang = description_node.attrib.get(lang_attr),
+                        description = description_node.text or '',
                     ))
 
                 # create icons
                 c.icons.all().delete()
-                for c_icon_node in c_node.findall('icon'):
+                for icon_node in c_node.findall('icon'):
                     c.icons.add(ComponentIcon(
-                        icon    = c_icon_node.text,
-                        type    = c_icon_node.attrib.get('type'),
-                        height  = c_icon_node.attrib.get('height'),
-                        width   = c_icon_node.attrib.get('width'),
+                        icon    = icon_node.text,
+                        type    = icon_node.attrib.get('type'),
+                        height  = icon_node.attrib.get('height'),
+                        width   = icon_node.attrib.get('width'),
                     ))
 
                 # create categories
                 c.categories.all().delete()
-                c_categories_node = c_node.find('categories')
-                if c_categories_node is not None:
-                    for category_node in c_categories_node.findall('category'):
+                categories_node = c_node.find('categories')
+                if categories_node is not None:
+                    for category_node in categories_node.findall('category'):
                         c.categories.add(Category.objects.get_or_create(
                             category = category_node.text,
                         )[0])
 
+                # create keywords
+                c.keywords.all().delete()
+                keywords_node = c_node.find('keywords')
+                if keywords_node is not None:
+                    for keyword_node in keywords_node.findall('keyword'):
+                        c.keywords.add(Keyword.objects.get_or_create(
+                            lang    = keyword_node.attrib.get(lang_attr),
+                            keyword = keyword_node.text,
+                        )[0])
+
                 # create urls
                 c.urls.all().delete()
-                for c_url_node in c_node.findall('url'):
+                for url_node in c_node.findall('url'):
                     c.urls.add(ComponentUrl(
-                        url     = c_url_node.text,
-                        type    = c_url_node.attrib.get('type'),
+                        url     = url_node.text,
+                        type    = url_node.attrib.get('type'),
                     ))
 
                 # create screenshots
                 c.screenshots.all().delete()
-                c_screenshots_node = c_node.find('screenshots')
-                if c_screenshots_node is not None:
-                    for screenshot_node in c_screenshots_node.findall('screenshot'):
+                screenshots_node = c_node.find('screenshots')
+                if screenshots_node is not None:
+                    for screenshot_node in screenshots_node.findall('screenshot'):
                         screenshot = ComponentScreenshot(
                             type = screenshot_node.attrib.get('type'),
                         )
@@ -159,9 +169,9 @@ class Command(LoggingBaseCommand):
 
                 # create releases
                 c.releases.all().delete()
-                c_releases_node = c_node.find('releases')
-                if c_releases_node is not None:
-                    for release_node in c_releases_node.findall('release'):
+                releases_node = c_node.find('releases')
+                if releases_node is not None:
+                    for release_node in releases_node.findall('release'):
                         c.releases.add(ComponentRelease(
                             version     = release_node.attrib.get('version'),
                             timestamp   = datetime.utcfromtimestamp(
@@ -171,9 +181,9 @@ class Command(LoggingBaseCommand):
 
                 # create languages
                 c.languages.all().delete()
-                c_languages_node = c_node.find('languages')
-                if c_languages_node is not None:
-                    for lang_node in c_languages_node.findall('lang'):
+                languages_node = c_node.find('languages')
+                if languages_node is not None:
+                    for lang_node in languages_node.findall('lang'):
                         c.languages.add(ComponentLanguage(
                             percentage  = lang_node.attrib.get('percentage'),
                             lang        = lang_node.text,
@@ -181,9 +191,9 @@ class Command(LoggingBaseCommand):
 
                 # create metadata
                 c.metadata.all().delete()
-                c_metadata_node = c_node.find('metadata')
-                if c_metadata_node is not None:
-                    for value_node in c_metadata_node.findall('value'):
+                metadata_node = c_node.find('metadata')
+                if metadata_node is not None:
+                    for value_node in metadata_node.findall('value'):
                         c.metadata.add(ComponentMetadata(
                             key     = value_node.attrib.get('key'),
                             value   = value_node.text,

@@ -21,12 +21,19 @@ class CategoryName(models.Model):
 
 
 
+class Keyword(models.Model):
+    lang        = models.CharField(max_length=100, null=True)
+    keyword     = models.CharField(max_length=100)
+
+
+
 class Component(models.Model):
     origin      = models.ForeignKey(Origin, related_name='components')
     type        = models.CharField(max_length=100)
     type_id     = models.CharField(max_length=100)
     pkgname     = models.CharField(max_length=100)
     categories  = models.ManyToManyField(Category)
+    keywords    = models.ManyToManyField(Keyword)
     project_license = models.TextField(null=True)
 
 
