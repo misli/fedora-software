@@ -4,5 +4,149 @@
 {% block title %}{% trans "Welcome to Fedora Software" %}{% endblock %}
 
 {% block content %}
-    <h1>{% trans "Hello, world!" %}</h1>
+    <h1>{% trans "Featured apps" %}</h1>
+
+    <div id="carousel-featured" >
+      <img src="/static/images/featured-gimp.png"/>
+      <h2> GNU Image Manipulation Program </h2>
+      <p>Create images and edit photographs </p>
+
+      <p>GIMP is an acronym for GNU Image Manipulation Program. It is a freely distributed program for such tasks as photo retouching, image composition and image authoring.</p><p>It has many capabilities. It can be used as a simple paint program, an expert quality photo retouching program, an online batch processing system, a mass production image renderer, an image format converter, etc.</p><p>GIMP is expandable and extensible. It is designed to be augmented with plug-ins and extensions to do just about anything. The advanced scripting interface allows everything from the simplest task to the most complex image manipulation procedures to be easily scripted. GIMP is available for Linux, Microsoft Windows and OS X.</p>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/qt5-linguist.png" alt="qt5-linguist-icon">
+      <div name="title">Qt5 linguist</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/shotwell.png" alt="geary-icon">
+      <div name="title">Shotwell</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/glade.png" alt="gtk-wave-icon">
+      <div name="title">Glade</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/org.gnome.Weather.Application.png" alt="audacity-icon">
+      <div name="title">Weather</div>
+      </a>
+    </div>
+
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/gajim.png" alt="icon">
+      <div name="title">Gajim</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/freecad.png" alt="geary-icon">
+      <div name="title">Geary</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/firefox.png" alt="icon">
+      <div name="title">Firefox</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/audacity.png" alt="icon">
+      <div name="title">Audacity</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/datovka.png" alt="icon">
+      <div name="title">Datovka</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+      <img src="/static/images/icons/meld.png" alt="icon">
+      <div name="title">Meld</div>
+      </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+        <img src="/static/images/icons/owncloud.png" alt="icon">
+        <div name="title">OwnCloud</div>
+    </a>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-default" href="/apps/scratch">
+        <img src="/static/images/icons/scratch.png" alt="icon">
+        <div name="title">Scratch</div>
+      </a>
+    </div>
+
+    <div style="clear: both;"></div>
+    <h1>{% trans "Categories" %}</h1>
+
+    <div class="col-md-3">
+      <a href="/category/graphics" class="btn btn-default category-link-btn"> Graphics </a>
+    </div>
+    <div class="col-md-3">
+      <a href="/category/graphics" class="btn btn-default category-link-btn"> Audio </a>
+    </div>
+    <div class="col-md-3">
+      <a href="/category/graphics" class="btn btn-default category-link-btn"> Development Tools </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Development Tools </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Education </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Office </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Video </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Internet </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Clicking </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Doubleclicking </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Science </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Utilities </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Terminals </a>
+    </div>
+
+    <div class="col-md-3">
+    <a href="/category/graphics" class="btn btn-default category-link-btn"> Plasma </a>
+    </div>
+
+
 {% endblock %}

@@ -1,0 +1,68 @@
+body {
+  background-color: #ececec;
+  font-family: Cantarell,"Droid Sans",Verdana,sans-serif;
+}
+
+
+h1, h2, h3 {
+  padding-top: 10px;
+}
+
+.container {
+/*  background-color: #ffffff; */
+}
+
+.menu {
+   background: linear-gradient(  #3c6eb4,  #294172 );
+    background-image: url("../images/header_background.png");
+    background-repeat: repeat-x;
+}
+
+.category-link-btn {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.col-md-2 a.btn {
+  margin-top: 5px;
+}
+
+.footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar-brand > img {
+  position: absolute;
+  top: 2px;
+  height: 45px;
+}
+
+#carousel-featured {
+  height: 400px;
+  margin-bottom: 60px;
+  background-color: #777;
+  overflow: none;
+  padding: 20px;
+       overflow: hidden;
+
+  background: linear-gradient(  rgba(60, 110 ,180, 0.4),  rgba(60, 110 ,180, 0.2));
+/*
+  color: #ffffff;
+  text-shadow: 3px 3px 5px rgba(0,0,0, 0.3), -2px -2px 5px rgba(0,0,0, 0.5);
+*/
+  color: #000000;
+  text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.8), -2px -2px 5px rgba(255, 255, 255, 1.0);
+  vertical-align:middle;
+}
+
+#carousel-featured img {
+  max-width: 50%;
+  max-height: 400px;
+  float: left;
+  margin-top: -40px;
+}
+
+#carousel-featured h1 {
+  float: right;
+}
