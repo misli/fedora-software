@@ -6,6 +6,7 @@ import sys
 from datetime import datetime
 from django.conf import settings
 from django.core.management.base import CommandError
+from django.db import transaction
 from django.utils.timezone import utc
 from xml.etree import ElementTree
 
@@ -58,12 +59,6 @@ class Command(LoggingBaseCommand):
         component_nodes_count = len(tree)
         logger.info('Parsed {} component nodes'.format(component_nodes_count))
 
-        try:
-            o_origin = tree.attrib['origin']
-        except:
-            raise CommandError('Missing attribute components[origin]')
-        origin = Origin.objects.get_or_create(origin=o_origin)[0]
-
         errors = 0
         component_ids = []
         for c_node in tree:
@@ -71,138 +66,138 @@ class Command(LoggingBaseCommand):
             c_type_id   = 'unknown'
 
             try:
-                c_type      = c_node.attrib['type']
-                c_type_id   = c_node.find('id').text
-                c_pkgname   = c_node.find('pkgname').text
-                try:
-                    c_project_license = c_node.find('project_license').text
-                except:
-                    c_project_license = None
+                with transaction.atomic():
+                    c_type      = c_node.attrib['type']
+                    c_type_id   = c_node.find('id').text
+                    c_pkgname   = c_node.find('pkgname').text
+                    try:
+                        c_project_license = c_node.find('project_license').text
+                    except:
+                        c_project_license = None
 
-                logger.info('Importing component {}/{} ({}/{})'.format(
-                    c_type, c_type_id, len(component_ids), component_nodes_count,
-                ))
-
-                # create component
-                c = Component.objects.get_or_create(
-                    origin          = origin,
-                    type            = c_type,
-                    type_id         = c_type_id,
-                    pkgname         = c_pkgname,
-                    project_license = c_project_license,
-                )[0]
-
-                lang_attr = '{http://www.w3.org/XML/1998/namespace}lang'
-
-                # create names
-                c.names.all().delete()
-                for name_node in c_node.findall('name'):
-                    c.names.add(ComponentName(
-                        lang = name_node.attrib.get(lang_attr),
-                        name = name_node.text,
+                    logger.info('Importing component {}/{} ({}/{})'.format(
+                        c_type, c_type_id, len(component_ids), component_nodes_count,
                     ))
 
-                # create summaries
-                c.summaries.all().delete()
-                for summary_node in c_node.findall('summary'):
-                    c.summaries.add(ComponentSummary(
-                        lang = summary_node.attrib.get(lang_attr),
-                        summary = summary_node.text,
-                    ))
+                    # create component
+                    c = Component.objects.get_or_create(
+                        type            = c_type,
+                        type_id         = c_type_id,
+                        pkgname         = c_pkgname,
+                        project_license = c_project_license,
+                    )[0]
 
-                # create descriptions
-                c.descriptions.all().delete()
-                for description_node in c_node.findall('description'):
-                    c.descriptions.add(ComponentDescription(
-                        lang = description_node.attrib.get(lang_attr),
-                        description = description_node.text or '',
-                    ))
+                    lang_attr = '{http://www.w3.org/XML/1998/namespace}lang'
 
-                # create icons
-                c.icons.all().delete()
-                for icon_node in c_node.findall('icon'):
-                    c.icons.add(ComponentIcon(
-                        icon    = icon_node.text,
-                        type    = icon_node.attrib.get('type'),
-                        height  = icon_node.attrib.get('height'),
-                        width   = icon_node.attrib.get('width'),
-                    ))
+                    # create names
+                    c.names.all().delete()
+                    for name_node in c_node.findall('name'):
+                        c.names.add(ComponentName(
+                            lang = name_node.attrib.get(lang_attr),
+                            name = name_node.text,
+                        ))
 
-                # create categories
-                c.categories.all().delete()
-                categories_node = c_node.find('categories')
-                if categories_node is not None:
-                    for category_node in categories_node.findall('category'):
-                        c.categories.add(Category.objects.get_or_create(
-                            category = category_node.text,
-                        )[0])
+                    # create summaries
+                    c.summaries.all().delete()
+                    for summary_node in c_node.findall('summary'):
+                        c.summaries.add(ComponentSummary(
+                            lang = summary_node.attrib.get(lang_attr),
+                            summary = summary_node.text,
+                        ))
 
-                # create keywords
-                c.keywords.all().delete()
-                keywords_node = c_node.find('keywords')
-                if keywords_node is not None:
-                    for keyword_node in keywords_node.findall('keyword'):
-                        c.keywords.add(Keyword.objects.get_or_create(
-                            lang    = keyword_node.attrib.get(lang_attr),
-                            keyword = keyword_node.text,
-                        )[0])
+                    # create descriptions
+                    c.descriptions.all().delete()
+                    for description_node in c_node.findall('description'):
+                        c.descriptions.add(ComponentDescription(
+                            lang = description_node.attrib.get(lang_attr),
+                            description = description_node.text or '',
+                        ))
 
-                # create urls
-                c.urls.all().delete()
-                for url_node in c_node.findall('url'):
-                    c.urls.add(ComponentUrl(
-                        url     = url_node.text,
-                        type    = url_node.attrib.get('type'),
-                    ))
+                    # create icons
+                    c.icons.all().delete()
+                    for icon_node in c_node.findall('icon'):
+                        c.icons.add(ComponentIcon(
+                            icon    = icon_node.text,
+                            type    = icon_node.attrib.get('type'),
+                            height  = icon_node.attrib.get('height'),
+                            width   = icon_node.attrib.get('width'),
+                        ))
 
-                # create screenshots
-                c.screenshots.all().delete()
-                screenshots_node = c_node.find('screenshots')
-                if screenshots_node is not None:
-                    for screenshot_node in screenshots_node.findall('screenshot'):
-                        screenshot = ComponentScreenshot(
-                            type = screenshot_node.attrib.get('type'),
-                        )
-                        c.screenshots.add(screenshot)
-                        for image_node in screenshot_node.findall('image'):
-                            screenshot.images.add(ComponentScreenshotImage(
-                                image   = image_node.text,
-                                type    = image_node.attrib.get('type'),
-                                height  = image_node.attrib.get('height'),
-                                width   = image_node.attrib.get('width'),
+                    # create categories
+                    c.categories.all().delete()
+                    categories_node = c_node.find('categories')
+                    if categories_node is not None:
+                        for category_node in categories_node.findall('category'):
+                            c.categories.add(Category.objects.get_or_create(
+                                category = category_node.text,
+                            )[0])
+
+                    # create keywords
+                    c.keywords.all().delete()
+                    keywords_node = c_node.find('keywords')
+                    if keywords_node is not None:
+                        for keyword_node in keywords_node.findall('keyword'):
+                            c.keywords.add(Keyword.objects.get_or_create(
+                                lang    = keyword_node.attrib.get(lang_attr),
+                                keyword = keyword_node.text,
+                            )[0])
+
+                    # create urls
+                    c.urls.all().delete()
+                    for url_node in c_node.findall('url'):
+                        c.urls.add(ComponentUrl(
+                            url     = url_node.text,
+                            type    = url_node.attrib.get('type'),
+                        ))
+
+                    # create screenshots
+                    c.screenshots.all().delete()
+                    screenshots_node = c_node.find('screenshots')
+                    if screenshots_node is not None:
+                        for screenshot_node in screenshots_node.findall('screenshot'):
+                            screenshot = ComponentScreenshot(
+                                type = screenshot_node.attrib.get('type'),
+                            )
+                            c.screenshots.add(screenshot)
+                            for image_node in screenshot_node.findall('image'):
+                                screenshot.images.add(ComponentScreenshotImage(
+                                    image   = image_node.text,
+                                    type    = image_node.attrib.get('type'),
+                                    height  = image_node.attrib.get('height'),
+                                    width   = image_node.attrib.get('width'),
+                                ))
+
+                    # create releases
+                    c.releases.all().delete()
+                    releases_node = c_node.find('releases')
+                    if releases_node is not None:
+                        for release_node in releases_node.findall('release'):
+                            c.releases.add(ComponentRelease(
+                                version     = release_node.attrib.get('version'),
+                                timestamp   = datetime.utcfromtimestamp(
+                                    int(release_node.attrib.get('timestamp'))
+                                ).replace(tzinfo=utc)
                             ))
 
-                # create releases
-                c.releases.all().delete()
-                releases_node = c_node.find('releases')
-                if releases_node is not None:
-                    for release_node in releases_node.findall('release'):
-                        c.releases.add(ComponentRelease(
-                            version     = release_node.attrib.get('version'),
-                            timestamp   = datetime.utcfromtimestamp(
-                                int(release_node.attrib.get('timestamp'))
-                            ).replace(tzinfo=utc)
-                        ))
+                    # create languages
+                    c.languages.all().delete()
+                    languages_node = c_node.find('languages')
+                    if languages_node is not None:
+                        for lang_node in languages_node.findall('lang'):
+                            c.languages.add(ComponentLanguage(
+                                percentage  = lang_node.attrib.get('percentage'),
+                                lang        = lang_node.text,
+                            ))
 
-                # create languages
-                c.languages.all().delete()
-                languages_node = c_node.find('languages')
-                if languages_node is not None:
-                    for lang_node in languages_node.findall('lang'):
-                        c.languages.add(ComponentLanguage(
-                            percentage  = lang_node.attrib.get('percentage'),
-                            lang        = lang_node.text,
-                        ))
-
-                # create metadata
-                c.metadata.all().delete()
-                metadata_node = c_node.find('metadata')
-                if metadata_node is not None:
-                    for value_node in metadata_node.findall('value'):
-                        c.metadata.add(ComponentMetadata(
-                            key     = value_node.attrib.get('key'),
-                            value   = value_node.text,
-                        ))
+                    # create metadata
+                    c.metadata.all().delete()
+                    metadata_node = c_node.find('metadata')
+                    if metadata_node is not None:
+                        for value_node in metadata_node.findall('value'):
+                            c.metadata.add(ComponentMetadata(
+                                key     = value_node.attrib.get('key'),
+                                value   = value_node.text,
+                            ))
 
             except Exception as e:
                 logger.error('Failed to import node {}/{}: {}'.format(c_type, c_type_id, e))
@@ -219,7 +214,7 @@ class Command(LoggingBaseCommand):
             logger.info('Successfully imported {} components'.format(len(component_ids)))
 
         # get stale components
-        stale_components = Component.objects.filter(origin=origin).exclude(id__in=component_ids)
+        stale_components = Component.objects.exclude(id__in=component_ids)
         stale_components_count = stale_components.count()
 
         # delete stale components

@@ -1,11 +1,6 @@
 from django.db import models
 
 
-class Origin(models.Model):
-    origin  = models.CharField(max_length=100, unique=True)
-
-
-
 class Category(models.Model):
     category    = models.CharField(max_length=100)
 
@@ -28,13 +23,15 @@ class Keyword(models.Model):
 
 
 class Component(models.Model):
-    origin      = models.ForeignKey(Origin, related_name='components')
     type        = models.CharField(max_length=100)
     type_id     = models.CharField(max_length=100)
     pkgname     = models.CharField(max_length=100)
     categories  = models.ManyToManyField(Category)
     keywords    = models.ManyToManyField(Keyword)
     project_license = models.TextField(null=True)
+
+    class Meta:
+        unique_together = [('type', 'type_id')]
 
 
 
