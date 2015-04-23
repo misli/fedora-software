@@ -20,9 +20,13 @@ Run development server:
 
     ./manage.py runserver
 
-Import data form appstream-data
+Import components form appstream-data
 
     ./manage.py importcomponents <path to xml.gz file>
+
+Import featured apps form gnome-software
+
+    ./manage.py importteaturedapps <path to ini file>
 
 
 Translations

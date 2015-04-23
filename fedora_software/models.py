@@ -118,3 +118,9 @@ class ComponentMetadata(models.Model):
     class Meta:
         unique_together = [('component', 'key')]
 
+
+
+class FeaturedApp(models.Model):
+    component   = models.OneToOneField(Component, related_name='featured')
+    style       = models.TextField()
+
