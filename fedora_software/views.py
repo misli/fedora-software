@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
 
@@ -8,8 +9,14 @@ class HomeView(TemplateView):
     template_name = 'home.html'
 
     def get_context_data(self):
+        featured_app    = FeaturedApp.objects.order_by('?').first()
+        highlight_apps  = Component.objects.filter(
+            type='desktop',
+            type_id__in=settings.FS_HIGHLIGHT_APPS,
+        ).exclude(id=featured_app.component.id).order_by('?')[:12]
         return {
-            'featured_app': FeaturedApp.objects.order_by('?').first(),
+            'featured_app':     featured_app,
+            'highlight_apps':   highlight_apps,
         }
 
 

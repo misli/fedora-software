@@ -125,3 +125,18 @@ LOGGING = {
     },
 }
 
+FS_HIGHLIGHT_APPS = [
+    'qt5-linguist.desktop',
+    'shotwell.desktop',
+    'glade.desktop',
+    'datovka.desktop',
+    'gimp.desktop',
+    'geary.desktop',
+    'audacity.desktop',
+    'gajim.desktop',
+    'firefox.desktop',
+    'org.gnome.Weather.Application.desktop',
+    'meld.desktop',
+    'scratch.desktop',
+    'owncloud.desktop',
+]
