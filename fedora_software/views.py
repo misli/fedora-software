@@ -2,7 +2,7 @@ from django.conf import settings
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
 
-from .models import FeaturedApp, Component
+from .models import FeaturedApp, Component, Category
 
 
 class HomeView(TemplateView):
@@ -22,8 +22,8 @@ class HomeView(TemplateView):
 
 
 class AppView(DetailView):
-    model = Component
-    template_name = 'app.html'
+    model           = Component
+    template_name   = 'app.html'
 
     def get_object(self, queryset=None):
         if queryset is None:
@@ -38,11 +38,12 @@ class AppView(DetailView):
 
 
 
+class CategoryView(DetailView):
+    model           = Category
+    template_name   = 'category.html'
+
 class SearchView(TemplateView):
     template_name = 'search.html'
-
-class CategoryView(TemplateView):
-    template_name = 'category.html'
 
 class FaqView(TemplateView):
     template_name = 'faq.html'
