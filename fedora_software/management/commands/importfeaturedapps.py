@@ -2,6 +2,7 @@ import logging
 import os
 import sys
 import ConfigParser
+import re
 
 from django.conf import settings
 from django.core.management.base import CommandError
@@ -69,6 +70,7 @@ class Command(LoggingBaseCommand):
                     except FeaturedApp.DoesNotExist:
                         fa = FeaturedApp(component=c)
                     fa.style = '; '.join(': '.join(item) for item in featured_config.items(section))
+                    fa.style = re.sub(r'/usr/share/gnome-software/', "/static/images/", fa.style)
                     fa.save()
 
             except Exception as e:
