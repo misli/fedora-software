@@ -7,9 +7,11 @@
     <h1>{% trans "Featured apps" %}</h1>
 
     <div id="carousel-featured" style="{{ featured_app.style }}">
-      <h2>{{ featured_app.component.get_name }}</h2>
-      <p>{{ featured_app.component.get_summary }}</p>
-      {{ featured_app.component.get_description }}
+      <div class="right-side">
+        <h2>{{ featured_app.component.get_name }}</h2>
+        <p>{{ featured_app.component.get_summary }}</p>
+         {{ featured_app.component.get_description }}
+      </div>
     </div>
 
     <div style="clear: both;"></div>

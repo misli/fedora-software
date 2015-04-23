@@ -63,6 +63,12 @@ h1, h2, h3 {
   margin-top: -40px;
 }
 
+#carousel-featured .right-side {
+  position:relative;
+  left: 50%;
+  width: 50%;
+}
+
 #carousel-featured h1 {
   float: right;
 }
