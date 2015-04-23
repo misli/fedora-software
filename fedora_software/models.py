@@ -7,6 +7,15 @@ class Category(models.Model):
     slug        = models.CharField(max_length=100, unique=True)
     category    = models.CharField(max_length=100, unique=True)
 
+    def get_name(self):
+        try:
+            return self.names.get(lang=get_language()).name
+        except CategoryName.DoesNotExist:
+            try:
+                return self.names.get(lang=None).name
+            except CategoryName.DoesNotExist:
+                return self.category
+
     def get_absolute_url(self):
         return reverse('category', args=(self.slug,))
 
@@ -14,7 +23,7 @@ class Category(models.Model):
 
 class CategoryName(models.Model):
     category    = models.ForeignKey(Category, related_name='names')
-    lang        = models.CharField(max_length=100)
+    lang        = models.CharField(max_length=100, null=True)
     name        = models.CharField(max_length=100)
 
     class Meta:
