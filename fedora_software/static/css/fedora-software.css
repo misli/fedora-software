@@ -66,3 +66,8 @@ h1, h2, h3 {
 #carousel-featured h1 {
   float: right;
 }
+
+#big_screenshot {
+  width: 624px;
+  height: 351px;
+}

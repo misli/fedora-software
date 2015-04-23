@@ -16,16 +16,21 @@ Create images and edit photographs
 <br/>
 
 <div id="galery">
-<a href="http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-596643f3909323b2596344d97de47fc8.png" data-lightbox="images" data-title="" ><img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/112x63/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png" class="img-thumbnail" ></a>
-<a href="http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png" data-lightbox="images" data-title="" ><img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/112x63/gimp-596643f3909323b2596344d97de47fc8.png" class="img-thumbnail" ></a>
-<!--
-<a href="{big}" data-lightbox="images" data-title="" ><img src="{thumb}" class="img-thumbnail" ></a>
--->
+  <a href="javascript:setBigScreenshot('http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png')"><img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/112x63/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png" class="img-thumbnail" ></a>
+  <a href="javascript:setBigScreenshot('http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-596643f3909323b2596344d97de47fc8.png')"><img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/112x63/gimp-596643f3909323b2596344d97de47fc8.png" class="img-thumbnail"></a>
 </div>
+<br/>
 
-<img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png">
+<img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png" id="big_screenshot">
+
+<script>
+function setBigScreenshot(url) {
+  $("#big_screenshot").attr("src", url);
+}
+</script>
 
 <div style="clear: both;"></div>
+<br/>
 
 
     <div class="col-md-3">
@@ -46,7 +51,9 @@ Create images and edit photographs
     <br/> <br/>
     Licence: GNU GPL <br/>
     Version: 2.8.14-1.fc22 <br/>
-    <a href="https://admin.fedoraproject.org/pkgdb/package/gimp/"> PkgDB </a>
+    Size: 40 MB <br/> 
+    Developer: Gnome <br/>
+    <a href="https://admin.fedoraproject.org/pkgdb/package/gimp/"> PkgDB </a> <br/>
     <a href="https://apps.fedoraproject.org/packages/gimp">Fedora packages</a>
 
 
