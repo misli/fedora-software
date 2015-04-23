@@ -77,3 +77,7 @@ h1, h2, h3 {
   width: 624px;
   height: 351px;
 }
+
+.app-icon {
+  word-wrap: break-word;
+}

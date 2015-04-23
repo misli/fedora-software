@@ -68,6 +68,13 @@ class Component(models.Model):
         else:
             raise Exception('not implemented url: {}'.format(self.type))
 
+    def get_icon_url(self):
+        try:
+            return self.icons.get().icon
+        except ComponentIcon.DoesNotExist:
+            return ''
+
+
 
 
 class ComponentName(models.Model):
