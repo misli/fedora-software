@@ -145,10 +145,11 @@ class Command(LoggingBaseCommand):
                     # create urls
                     c.urls.all().delete()
                     for url_node in c_node.findall('url'):
-                        c.urls.add(ComponentUrl(
-                            url     = url_node.text,
-                            type    = url_node.attrib.get('type'),
-                        ))
+                        if url_node.text is not None:
+                            c.urls.add(ComponentUrl(
+                                url     = url_node.text,
+                                type    = url_node.attrib.get('type'),
+                            ))
 
                     # create screenshots
                     c.screenshots.all().delete()
