@@ -5,7 +5,7 @@
 
 {% block content %}
 
-    <img src="/static/images/icons/{{ app.get_icon_url }}" alt="" style="float: left; padding: 10px 20px 10px 20px;">
+    <img src="/static/images/icons/{{ app.get_icon_url }}" alt="" style="float: left; padding: 10px 20px 10px 20px;"/>
     <h1>{{ app.get_name }}</h1>
 
     {{ app.get_summary }}
@@ -13,49 +13,44 @@
     {{ app.get_description }}
 
 
-<div style="clear: both;"></div>
-<br/>
+    <div style="clear: both;"></div>
+    <br/>
 
-<div id="galery">
-  <a href="javascript:setBigScreenshot('http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png')"><img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/112x63/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png" class="img-thumbnail" ></a>
-  <a href="javascript:setBigScreenshot('http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-596643f3909323b2596344d97de47fc8.png')"><img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/112x63/gimp-596643f3909323b2596344d97de47fc8.png" class="img-thumbnail"></a>
-</div>
-<br/>
+    {% if app.screenshots.count %}
+    <div id="galery">
+        {% for screenshot in app.screenshots.all %}
+        <a href="javascript:setBigScreenshot('{{ screenshot.get_medium_thumbnail_image.image }}')"><img src="{{ screenshot.get_small_thumbnail_image.image }}" class="img-thumbnail"/></a>
+        {% endfor %}
+    </div>
+    <br/>
 
-<img src="http://alt.fedoraproject.org/pub/alt/screenshots/f22/624x351/gimp-58a77f2016f13148a1ec8f4ad5ca172a.png" id="big_screenshot">
+    <img src="{{ app.screenshots.first.get_medium_thumbnail_image.image }}" id="big_screenshot"/>
 
-<script>
+    <script>
 function setBigScreenshot(url) {
   $("#big_screenshot").attr("src", url);
 }
-</script>
+    </script>
 
-<div style="clear: both;"></div>
-<br/>
+    <div style="clear: both;"></div>
+    <br/>
+    {% endif %}
 
-
+    {% for cat in app.categories.all %}
     <div class="col-md-3">
-      <a href="/category/graphics" class="btn btn-default category-link-btn">2DGraphics</a>
+        <a href="{{ cat.get_absolute_url }}" class="btn btn-default category-link-btn">{{ cat.get_name }}</a>
     </div>
+    {% endfor %}
 
-    <div class="col-md-3">
-      <a href="/category/graphics" class="btn btn-default category-link-btn">Graphics</a>
-    </div>
-
-    <div class="col-md-3">
-      <a href="/category/graphics" class="btn btn-default category-link-btn">RasterGraphics</a>
-    </div>
-
-<div style="clear: both;"></div>
+    <div style="clear: both;"></div>
 
 
     <br/> <br/>
-    Licence: GNU GPL <br/>
+    Licence: {{ app.project_license }}<br/>
     Version: 2.8.14-1.fc22 <br/>
     Size: 40 MB <br/> 
     Developer: Gnome <br/>
-    <a href="https://admin.fedoraproject.org/pkgdb/package/gimp/"> PkgDB </a> <br/>
-    <a href="https://apps.fedoraproject.org/packages/gimp">Fedora packages</a>
-
+    <a href="https://admin.fedoraproject.org/pkgdb/package/{{ app.pkgname }}/"> PkgDB </a> <br/>
+    <a href="https://apps.fedoraproject.org/packages/{{ app.pkgname }}">Fedora packages</a>
 
 {% endblock %}

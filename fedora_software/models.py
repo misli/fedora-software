@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import get_language
@@ -139,6 +140,36 @@ class ComponentUrl(models.Model):
 class ComponentScreenshot(models.Model):
     component   = models.ForeignKey(Component, related_name='screenshots')
     type        = models.CharField(max_length=100, null=True)
+
+    def get_small_thumbnail_image(self):
+        try:
+            return self.images.get(type='thumbnail',
+                height=settings.FS_SMALL_THUMBNAIL_HEIGHT,
+                width=settings.FS_SMALL_THUMBNAIL_WIDTH)
+        except ComponentScreenshotImage.DoesNotExist:
+            return None
+
+    def get_medium_thumbnail_image(self):
+        try:
+            return self.images.get(type='thumbnail',
+                height=settings.FS_MEDIUM_THUMBNAIL_HEIGHT,
+                width=settings.FS_MEDIUM_THUMBNAIL_WIDTH)
+        except ComponentScreenshotImage.DoesNotExist:
+            return None
+
+    def get_large_thumbnail_image(self):
+        try:
+            return self.images.get(type='thumbnail',
+                height=settings.FS_LARGE_THUMBNAIL_HEIGHT,
+                width=settings.FS_LARGE_THUMBNAIL_WIDTH)
+        except ComponentScreenshotImage.DoesNotExist:
+            return None
+
+    def get_source_image(self):
+        try:
+            return self.images.get(type='source')
+        except ComponentScreenshotImage.DoesNotExist:
+            return None
 
 
 
