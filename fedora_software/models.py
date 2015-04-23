@@ -4,7 +4,11 @@ from django.utils.translation import get_language
 
 
 class Category(models.Model):
-    category    = models.CharField(max_length=100)
+    slug        = models.CharField(max_length=100, unique=True)
+    category    = models.CharField(max_length=100, unique=True)
+
+    def get_absolute_url(self):
+        return reverse('category', args=(self.slug,))
 
 
 

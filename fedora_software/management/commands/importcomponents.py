@@ -1,6 +1,7 @@
 import gzip
 import logging
 import os
+import re
 import sys
 
 from datetime import datetime
@@ -16,6 +17,11 @@ from ...models import *
 
 logger = logging.getLogger(__name__)
 
+
+_case_re    = re.compile(r'([a-z])([A-Z])')
+_space_re   = re.compile(r'\s+')
+def slugify(name):
+    return _space_re.sub('-', _case_re.sub(r'\1-\2', name)).lower()
 
 class Command(LoggingBaseCommand):
     args = '<xml file>'
@@ -129,7 +135,8 @@ class Command(LoggingBaseCommand):
                     if categories_node is not None:
                         for category_node in categories_node.findall('category'):
                             c.categories.add(Category.objects.get_or_create(
-                                category = category_node.text,
+                                slug        = slugify(category_node.text),
+                                category    = category_node.text,
                             )[0])
 
                     # create keywords
