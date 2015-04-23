@@ -24,7 +24,7 @@
   
   <script>
     function switchLanguage(lang) {
-      var regexp = /^\/\w+/i
+      var regexp = /^\/[^\/]+/i
       var str = location.pathname;
       str = str.replace(regexp, "/"+lang);
       location.replace(str);
