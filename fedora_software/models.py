@@ -70,7 +70,7 @@ class Component(models.Model):
 
     def get_icon_url(self):
         try:
-            return self.icons.get().icon
+            return self.icons.first().icon
         except ComponentIcon.DoesNotExist:
             return ''
 
