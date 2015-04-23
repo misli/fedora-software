@@ -44,13 +44,9 @@ h1, h2, h3 {
   background-color: #777;
   overflow: none;
   padding: 20px;
-       overflow: hidden;
-
+  overflow: hidden;
+  border-radius: 8px;
   background: linear-gradient(  rgba(60, 110 ,180, 0.4),  rgba(60, 110 ,180, 0.2));
-/*
-  color: #ffffff;
-  text-shadow: 3px 3px 5px rgba(0,0,0, 0.3), -2px -2px 5px rgba(0,0,0, 0.5);
-*/
   color: #000000;
   text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.8), -2px -2px 5px rgba(255, 255, 255, 1.0);
   vertical-align:middle;
