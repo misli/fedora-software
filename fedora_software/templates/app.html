@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}GIMP{% endblock %}
+{% block title %}{{ app.get_name }}{% endblock %}
 
 {% block content %}
 
-    <h1> GNU Image Manipulation Program</h1>
+    <h1>{{ app.get_name }}</h1>
 
 Create images and edit photographs
 
