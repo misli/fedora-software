@@ -140,3 +140,22 @@ FS_HIGHLIGHT_APPS = [
     'scratch.desktop',
     'owncloud.desktop',
 ]
+
+FS_HIGHLIGHT_CATS = [
+    'game',
+    'system',
+    'utility',
+    'audio-video',
+    'development',
+    'office',
+    'education',
+    'network',
+    'graphics',
+    'accessibility',
+    'ide',
+    'languages',
+    'web-browser',
+    'finance',
+    'chat',
+]
+

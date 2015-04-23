@@ -14,9 +14,13 @@ class HomeView(TemplateView):
             type='desktop',
             type_id__in=settings.FS_HIGHLIGHT_APPS,
         ).exclude(id=featured_app.component.id).order_by('?')[:12]
+        highlight_cats = Category.objects.filter(
+            slug__in=settings.FS_HIGHLIGHT_CATS,
+        ).exclude(id=featured_app.component.id).order_by('?')[:12]
         return {
             'featured_app':     featured_app,
             'highlight_apps':   highlight_apps,
+            'highlight_cats':   highlight_cats,
         }
 
 
