@@ -213,12 +213,14 @@ class Command(LoggingBaseCommand):
         else:
             logger.info('Successfully imported {} components'.format(len(component_ids)))
 
-        # get stale components
-        stale_components = Component.objects.exclude(id__in=component_ids)
-        stale_components_count = stale_components.count()
-
         # delete stale components
-        if stale_components_count > 0:
-            stale_components.delete()
-            logger.info('Successfully deleted {} stale components'.format(stale_components_count))
+        deleted_components_count = 0
+        for c in Component.objects.all():
+            if c.id not in component_ids:
+                logger.info('Deleting stale component {}/{}'.format(c.type, c.type_id))
+                c.delete()
+                deleted_components_count += 1
+
+        if deleted_components_count > 0:
+            logger.info('Successfully deleted {} stale components'.format(deleted_components_count))
 
