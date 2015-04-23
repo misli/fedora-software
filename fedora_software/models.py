@@ -41,7 +41,7 @@ class Component(models.Model):
     type        = models.CharField(max_length=100)
     type_id     = models.CharField(max_length=100)
     pkgname     = models.CharField(max_length=100)
-    categories  = models.ManyToManyField(Category)
+    categories  = models.ManyToManyField(Category, related_name='components')
     keywords    = models.ManyToManyField(Keyword)
     project_license = models.TextField(null=True)
 
