@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import get_language
 
 
 class Category(models.Model):
@@ -32,6 +33,33 @@ class Component(models.Model):
 
     class Meta:
         unique_together = [('type', 'type_id')]
+
+    def get_name(self):
+        try:
+            return self.names.get(lang=get_language()).name
+        except ComponentName.DoesNotExist:
+            try:
+                return self.names.get(lang=None).name
+            except ComponentName.DoesNotExist:
+                return self.pkgname
+
+    def get_summary(self):
+        try:
+            return self.summaries.get(lang=get_language()).summary
+        except ComponentSummary.DoesNotExist:
+            try:
+                return self.summaries.get(lang=None).summary
+            except ComponentSummary.DoesNotExist:
+                return ''
+
+    def get_description(self):
+        try:
+            return self.descriptions.get(lang=get_language()).description
+        except ComponentDescription.DoesNotExist:
+            try:
+                return self.descriptions.get(lang=None).description
+            except ComponentDescription.DoesNotExist:
+                return ''
 
 
 

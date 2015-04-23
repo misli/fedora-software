@@ -6,13 +6,10 @@
 {% block content %}
     <h1>{% trans "Featured apps" %}</h1>
 
-    <div id="carousel-featured" >
-      <img src="/static/images/featured-gimp.png"/>
-      <h2> GNU Image Manipulation Program </h2>
-      <p>Create images and edit photographs </p>
-
-      <p>GIMP is an acronym for GNU Image Manipulation Program. It is a freely distributed program for such tasks as photo retouching, image composition and image authoring.</p><p>It has many capabilities. It can be used as a simple paint program, an expert quality photo retouching program, an online batch processing system, a mass production image renderer, an image format converter, etc.</p><p>GIMP is expandable and extensible. It is designed to be augmented with plug-ins and extensions to do just about anything. The advanced scripting interface allows everything from the simplest task to the most complex image manipulation procedures to be easily scripted. GIMP is available for Linux, Microsoft Windows and OS X.</p>
-
+    <div id="carousel-featured" style="{{ featured_app.style }}">
+      <h2>{{ featured_app.component.get_name }}</h2>
+      <p>{{ featured_app.component.get_summary }}</p>
+      {{ featured_app.component.get_description }}
     </div>
 
     <div style="clear: both;"></div>
