@@ -7,7 +7,7 @@
 
     <h1>{% trans "Category" %} {{ category.get_name }}</h1>
 
-    {% for app in category.components.all %}
+    {% for app in category.desktops %}
     <div class="col-md-2 app-icon">
         <a class="btn btn-default" href="{{ app.get_absolute_url }}">
             <img src="/static/images/icons/{{ app.get_icon_url }}" alt=""/>

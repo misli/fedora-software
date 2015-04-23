@@ -20,6 +20,29 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('category', args=(self.slug,))
 
+    @property
+    def addons(self):
+        return self.components.filter(type='addon')
+
+    @property
+    def codecs(self):
+        return self.components.filter(type='codec')
+
+    @property
+    def desktops(self):
+        return self.components.filter(type='desktop')
+
+    @property
+    def fonts(self):
+        return self.components.filter(type='font')
+
+    @property
+    def inputmethods(self):
+        return self.components.filter(type='inputmethod')
+
+    @property
+    def webapps(self):
+        return self.components.filter(type='webapp')
 
 
 class CategoryName(models.Model):
