@@ -36,11 +36,25 @@
           </a>
       </div> <!-- navbar-header -->
 
-       <form class="navbar-form navbar-right" role="search" action="/search/" method="get">
+      <ul class="navbar-right nav navbar-nav">
+        <li>
+      <form class="navbar-form " role="search" action="/search/" method="get">
         <div class="form-group">
           <input type="text" name="q" class="form-control" placeholder="{% trans "Search" %}">
         </div> <!-- form-group -->
       </form>
+        </li>
+        <li>
+      <form action="/i18n/setlang/" method="post" class="navbar-form">
+                <select name="language" onchange="form.submit();" class="form-control">
+                {% for lang in LANGUAGES %}
+                <option value="{{ lang.0 }}" {% ifequal lang.0 LANGUAGE_CODE %}selected="yes"{% endifequal %}> {{ lang.1 }}</option>
+                {% endfor %}
+                </select>
+      </form>
+        </li>
+      </ul>
+
     </div> <!-- container -->
   </nav>
 
