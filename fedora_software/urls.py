@@ -9,7 +9,7 @@ from .views import HomeView, AppView, SearchView, CategoryView, FaqView
 urlpatterns = i18n_patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', HomeView.as_view(), name='home'),
-    url(r'^apps/.*$', AppView.as_view(), name='app'),
+    url(r'^apps/(?P<id>.*)$', AppView.as_view(), name='app'),
     url(r'^search/.*$', SearchView.as_view(), name='search'),
     url(r'^category/.*$', CategoryView.as_view(), name='category'),
     url(r'^faq$', FaqView.as_view(), name='faq'),

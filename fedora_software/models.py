@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import get_language
 
@@ -60,6 +61,12 @@ class Component(models.Model):
                 return self.descriptions.get(lang=None).description
             except ComponentDescription.DoesNotExist:
                 return ''
+
+    def get_absolute_url(self):
+        if self.type == 'desktop':
+            return reverse('app', args=(self.type_id[:-8],))
+        else:
+            raise Exception('not implemented url: {}'.format(self.type))
 
 
 
