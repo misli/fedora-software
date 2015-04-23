@@ -22,7 +22,7 @@ Run development server:
 
 Import data form appstream-data
 
-    ./manage.py updatedb
+    ./manage.py importcomponents <path to xml.gz file>
 
 
 Translations

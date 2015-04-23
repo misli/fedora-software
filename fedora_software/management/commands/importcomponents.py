@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 class Command(LoggingBaseCommand):
     args = '<xml file>'
-    help = 'Import data from appstream-data. '
+    help = 'Import data from appstream-data.'
 
     def handle(self, *args, **options):
         self.configure_logging(options['verbosity'])
@@ -38,11 +38,11 @@ class Command(LoggingBaseCommand):
                     raise
                 raise CommandError(
                     'Failed to find xml file provided by appstream-data package. '\
-                    'Specify path to the file as an argument.\nType {} help updatedb'.format(
+                    'Specify path to the file as an argument.\nType {} help importcomponents'.format(
                         os.path.basename(sys.argv[0])
                     ))
         elif len(args) > 1:
-            raise CommandError('Invalid number of arguments.\nType {} help updatedb'.format(
+            raise CommandError('Invalid number of arguments.\nType {} help importcomponents'.format(
                 os.path.basename(sys.argv[0])))
 
         logger.info('Reading %s' % xml_file)
@@ -52,7 +52,7 @@ class Command(LoggingBaseCommand):
         except Exception as e:
             if settings.DEBUG:
                 raise
-            raise CommandError('Failed to read content of {xml_file}: {e}\nType {manage} help updatedb'.format(
+            raise CommandError('Failed to read content of {xml_file}: {e}\nType {manage} help importcomponents'.format(
                 xml_file = xml_file, e = e, manage = os.path.basename(sys.argv[0])
                 ))
 
@@ -76,7 +76,7 @@ class Command(LoggingBaseCommand):
                         c_project_license = None
 
                     logger.info('Importing component {}/{} ({}/{})'.format(
-                        c_type, c_type_id, len(component_ids), component_nodes_count,
+                        c_type, c_type_id, len(component_ids)+1, component_nodes_count,
                     ))
 
                     # create component
