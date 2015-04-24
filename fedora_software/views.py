@@ -1,3 +1,4 @@
+from collections import Counter
 from django.conf import settings
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
@@ -48,10 +49,28 @@ class CategoryView(DetailView):
 
 class SearchView(TemplateView):
     template_name = 'search.html'
-#    def get_context_data(self):
-#        search_results = Component.objects.filter(
-#            type='desktop'
-#        )
+
+    def get_context_data(self):
+        # get query string from request
+        q = self.request.GET.get('q')
+
+        # find results
+        apps = Component.objects.filter(type='desktop')
+        apps_by_name    = apps.filter(names__name__contains=q).distinct()
+        apps_by_summary = apps.filter(summaries__summary__contains=q).distinct()
+        apps_by_desc    = apps.filter(descriptions__description__contains=q).distinct()
+        apps_by_keyword = apps.filter(keywords__keyword__contains=q).distinct()
+
+        # mix that together
+        counter = Counter(apps_by_name)
+        counter.update(apps_by_summary)
+        counter.update(apps_by_desc)
+        counter.update(apps_by_keyword)
+        search_results = [mc[0] for mc in counter.most_common()]
+        return {
+            'search_query':     q,
+            'search_results':   search_results,
+        }
 
 class FaqView(TemplateView):
     template_name = 'faq.html'
