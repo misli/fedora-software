@@ -7,6 +7,7 @@
 
     <h1>{% trans "Featured apps" %}</h1>
 
+    <a href="{{ featured_app.component.get_absolute_url }}" id="featured_app_href">
     <div id="carousel-featured" style="{{ featured_app.style }}">
         <div class="right-side">
             <h2>{{ featured_app.component.get_name }}</h2>
@@ -14,6 +15,8 @@
             {{ featured_app.component.get_description }}
         </div>
     </div>
+    </a>
+
 
     <div style="clear: both;"></div>
 
