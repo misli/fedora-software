@@ -7,27 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fedora-software\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-23 17:47+0200\n"
+"POT-Creation-Date: 2015-04-24 08:52+0200\n"
 "Last-Translator: Jakub Dornak <jdornak@redhat.com>\n"
 "Language: Czech\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/base.html:52
+#: templates/base.html:43
 msgid "Search"
 msgstr "Hledat"
 
-#: templates/base.html:77
+#: templates/base.html:68
 msgid "Fedora"
 msgstr "Fedora"
 
-#: templates/base.html:77
+#: templates/base.html:68
 msgid "FAQ"
 msgstr "FAQ"
 
 #: templates/category.html:4 templates/category.html.py:8
-#, fuzzy
 msgid "Category"
 msgstr "Kategorie"
 
@@ -39,11 +38,11 @@ msgstr "Nejčastěji kladené otázky"
 msgid "Welcome to Fedora Software"
 msgstr "Vítejte na webu Fedora Software"
 
-#: templates/home.html:7
+#: templates/home.html:8
 msgid "Featured apps"
 msgstr "Vybrané aplikace"
 
-#: templates/home.html:30
+#: templates/home.html:31
 msgid "Categories"
 msgstr "Kategorie"
 

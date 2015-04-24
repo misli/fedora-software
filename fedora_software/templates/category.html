@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "Category" %} Grapihcs{% endblock %}
+{% block title %}{% trans "Category" %} {{ category.get_name }} {% endblock %}
 
 {% block content %}
 
