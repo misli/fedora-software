@@ -48,6 +48,10 @@ class CategoryView(DetailView):
 
 class SearchView(TemplateView):
     template_name = 'search.html'
+#    def get_context_data(self):
+#        search_results = Component.objects.filter(
+#            type='desktop'
+#        )
 
 class FaqView(TemplateView):
     template_name = 'faq.html'
