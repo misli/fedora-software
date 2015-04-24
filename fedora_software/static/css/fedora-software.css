@@ -75,5 +75,15 @@ h1, h2, h3 {
 }
 
 .app-icon {
-  word-wrap: break-word;
+  height: 220px;
 }
+
+.app-icon a {
+  height: 200px;
+  display: block;
+  width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+
+}
+
