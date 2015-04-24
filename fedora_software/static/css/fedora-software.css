@@ -78,6 +78,12 @@ h1, h2, h3 {
   height: 220px;
 }
 
+.app-icon img {
+  width: 128px;
+  height: 128px;
+}
+
+
 .app-icon a {
   height: 200px;
   display: block;
