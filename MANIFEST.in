@@ -1,0 +1,5 @@
+include LICENSE
+include README.md
+recursive-include fedora_software *
+recursive-exclude * *.pyc
+recursive-exclude * *.pyo
