@@ -110,6 +110,11 @@ class Component(models.Model):
             return self.icons.first().icon
         except ComponentIcon.DoesNotExist:
             return ''
+    def get_version(self):
+        try:
+            return self.releases.first().version;
+        except ComponentRelease.DoesNotExist:
+            return ''
 
 
 
