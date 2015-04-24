@@ -1,3 +1,4 @@
+import re
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -8,6 +9,7 @@ class Category(models.Model):
     slug        = models.CharField(max_length=100, unique=True)
     category    = models.CharField(max_length=100, unique=True)
 
+    _name_re = re.compile(r'([a-z])([A-Z])')
     def get_name(self):
         try:
             return self.names.get(lang=get_language()).name
@@ -15,7 +17,7 @@ class Category(models.Model):
             try:
                 return self.names.get(lang=None).name
             except CategoryName.DoesNotExist:
-                return self.category
+                return self._name_re.sub(r'\1 \2', self.category)
 
     def get_absolute_url(self):
         return reverse('category', args=(self.slug,))
