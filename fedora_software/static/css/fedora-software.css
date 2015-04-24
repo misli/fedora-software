@@ -13,9 +13,16 @@ h1, h2, h3 {
 }
 
 .menu {
-   background: linear-gradient(  #3c6eb4,  #294172 );
-    background-image: url("../images/header_background.png");
-    background-repeat: repeat-x;
+    background: linear-gradient(  #3c6eb4,  #294172 );
+}
+
+.menu .navbar-toggle {
+    background: linear-gradient(  #3c6eb4,  #294172 );
+}
+
+.menu .navbar-form {
+  border: 0;
+  box-shadow: none;
 }
 
 .category-link-btn {

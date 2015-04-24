@@ -22,7 +22,7 @@
   </head>
   <body>
   
-  <nav class="navbar menu" role="navigation">
+  <nav class="navbar-inverse menu" role="navigation">
     <div class="container">
       <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -31,14 +31,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+
           <a class="navbar-brand" href="/">
             <img src="/static/images/fedora-software.png" alt="fedora-software" />
           </a>
       </div> <!-- navbar-header -->
 
-      <ul class="navbar-right nav navbar-nav">
-        <li>
-      <form class="navbar-form " role="search" action="/search/" method="get">
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+      <form class="navbar-form" role="search" action="/search/" method="get">
         <div class="form-group">
           <input type="text" name="q" class="form-control" placeholder="{% trans "Search" %}">
         </div> <!-- form-group -->
@@ -53,7 +55,8 @@
             </select>
           </form>
         </li>
-      </ul>
+        </ul> <!-- .nav navbar-nav navbar-right -->
+      </div> <!-- #navbar -->
 
     </div> <!-- container -->
   </nav>
