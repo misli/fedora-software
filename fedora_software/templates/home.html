@@ -12,7 +12,7 @@
         <div class="right-side">
             <h2>{{ featured_app.component.get_name }}</h2>
             <p>{{ featured_app.component.get_summary }}</p>
-            {{ featured_app.component.get_description }}
+            {% autoescape off %}{{ featured_app.component.get_description }}{% endautoescape %}
         </div>
     </div>
     </a>

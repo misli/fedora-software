@@ -10,10 +10,13 @@
 
     {{ app.get_summary }}
 
-    {{ app.get_description }}
-
 
     <div style="clear: both;"></div>
+
+    {% autoescape off %}{{ app.get_description }}{% endautoescape %}
+
+    <div style="clear: both;"></div>
+
     <br/>
 
     {% if app.screenshots.count %}
