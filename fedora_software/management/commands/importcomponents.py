@@ -116,7 +116,7 @@ class Command(LoggingBaseCommand):
                     for description_node in c_node.findall('description'):
                         c.descriptions.add(ComponentDescription(
                             lang = description_node.attrib.get(lang_attr),
-                            description = description_node.text or '',
+                            description = ElementTree.tostring(description_node, method="html"),
                         ))
 
                     # create icons
