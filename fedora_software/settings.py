@@ -126,9 +126,7 @@ LOGGING = {
 }
 
 FS_HIGHLIGHT_APPS = [
-    'qt5-linguist.desktop',
     'shotwell.desktop',
-    'glade.desktop',
     'datovka.desktop',
     'gimp.desktop',
     'geary.desktop',
@@ -138,7 +136,19 @@ FS_HIGHLIGHT_APPS = [
     'org.gnome.Weather.Application.desktop',
     'meld.desktop',
     'scratch.desktop',
+    'anjuta.desktop',
+    'mozilla-thunderbird.desktop',
+    'gtkwave.desktop',
     'owncloud.desktop',
+    'stellarium.desktop',
+    'frozen-bubble.desktop',
+    'wesnoth.desktop',
+    'scorched3d.desktop',
+    'rosegarden.desktop',
+    'darktable.desktop',
+    'virt-manager.desktop',
+    'subsurface.desktop',
+    'pitivi.desktop',
 ]
 
 FS_HIGHLIGHT_CATS = [
