@@ -42,3 +42,6 @@ Update translations:
         django-admin compilemessages
     popd
 
+The translations could be done online at fedora zanata.
+
+https://fedora.zanata.org/project/view/fedora-software
