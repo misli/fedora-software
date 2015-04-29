@@ -4,29 +4,66 @@ fedora-software
 Web interface to Fedora Software database
 
 
+Installation
+------------
+
+Install appstream-data, gnome-software and httpd stuff:
+
+    dnf install appstream-data gnome-software httpd mod_wsgi python-django
+
+Install the package:
+
+    python setup.py install
+
+Initialize database:
+
+    fedora-software-manage syncdb
+
+Import components form appstream-data (takes a while)
+
+    fedora-software-manage importcomponents [ <path to xml.gz file> ]
+
+Import featured apps form gnome-software
+
+    fedora-software-manage importteaturedapps [ <path to ini file> ]
+
+Copy and check httpd configuration
+
+    cp /usr/lib/fedora-software/httpd/fedora-software.conf \
+       /etc/httpd/conf.d/
+
+Restart httpd server
+
+    service httpd restart
+
+
 Development instance
 --------------------
 
-Clone the git repository:
+Install appstream-data, gnome-software and httpd stuff:
 
-    git clone git@github.com:misli/fedora-software.git
-    cd fedora-software
+    dnf install appstream-data gnome-software httpd mod_wsgi python-django
 
 Initialize database:
 
     ./manage.py syncdb
 
+Import components form appstream-data (takes a while)
+
+    ./manage.py importcomponents [ <path to xml.gz file> ]
+
+Import featured apps form gnome-software
+
+    ./manage.py importteaturedapps [ <path to ini file> ]
+
 Run development server:
 
     ./manage.py runserver
 
-Import components form appstream-data
+Note that management instance by default runs with DEBUG=True.
+To disable debug mode set environment variable DEBUG to '':
 
-    ./manage.py importcomponents <path to xml.gz file>
-
-Import featured apps form gnome-software
-
-    ./manage.py importteaturedapps <path to ini file>
+    DEBUG='' ./manage.py runserver
 
 
 Translations

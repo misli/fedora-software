@@ -1,3 +1,4 @@
+# ~*~ coding: utf-8 ~*~
 """
 Django settings for fedora_software project.
 
@@ -8,13 +9,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG   = os.environ.get('DEBUG', False) and True or False
+DBDEBUG = os.environ.get('DEBUG', False) == 'DB'
+TEMPLATE_DEBUG = os.environ.get('DEBUG', False) == 'TEMPLATE'
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
+BASE_DIR = os.path.dirname(os.path.dirname(__file__)) if DEBUG else '/var/lib/fedora-software'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 try:
@@ -27,14 +29,13 @@ except IOError:
             'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
         f.write(SECRET_KEY)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG   = True # os.environ.get('DEBUG', False) and True or False
-DBDEBUG = os.environ.get('DEBUG', False) == 'DB'
+ALLOWED_HOSTS = ['*']
 
-TEMPLATE_DEBUG = True # os.environ.get('DEBUG', False) == 'TEMPLATE'
-
-ALLOWED_HOSTS = []
-
+ADMINS = (
+    ('Jakub Dorňák', 'jdornak@redhat.com'),
+    ('Jozef Mlích',  'jmlich@redhat.com'),
+)
+SERVER_EMAIL = '"Fedora Software" <no-reply@redhat.com>'
 
 # Application definition
 
@@ -91,7 +92,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'htdocs', 'static')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'htdocs', 'media')
 
 LOGGING = {
     'version': 1,
