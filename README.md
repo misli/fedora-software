@@ -27,10 +27,19 @@ Import featured apps form gnome-software
 
     fedora-software-manage importteaturedapps [ <path to ini file> ]
 
+Collect static files
+
+    fedora-software-manage collectstatic
+
 Copy and check httpd configuration
 
     cp /usr/lib/fedora-software/httpd/fedora-software.conf \
        /etc/httpd/conf.d/
+
+Ensure that apache is able to write to the database:
+
+    chgrp -R apache /var/lib/fedora-software/data
+    chmod -R g+w    /var/lib/fedora-software/data
 
 Restart httpd server
 
