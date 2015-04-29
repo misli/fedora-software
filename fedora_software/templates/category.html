@@ -7,13 +7,8 @@
 
     <h1>{% trans "Category" %} {{ category.get_name }}</h1>
 
-    {% for app in category.desktops %}
-    <div class="col-md-2 app-icon">
-        <a class="btn btn-default" href="{{ app.get_absolute_url }}">
-            <img src="/static/images/icons/{{ app.get_icon_url }}" alt=""/>
-            <div name="title">{{ app.get_name }}</div>
-        </a>
-    </div>
+    {% for component in category.desktops %}
+        {% include 'component-icon.html' %}
     {% endfor %}
 
     <div style="clear: both;"></div>

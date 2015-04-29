@@ -7,13 +7,8 @@
 
     <h1> {% trans "Search results" %}</h1>
 
-    {% for app in search_results %}
-    <div class="col-md-2 app-icon">
-        <a class="btn btn-default" href="{{ app.get_absolute_url }}">
-            <img src="/static/images/icons/{{ app.get_icon_url }}" alt=""/>
-            <div name="title">{{ app.get_name }}</div>
-        </a>
-    </div>
+    {% for component in search_results %}
+        {% include 'component-icon.html' %}
     {% endfor %}
 
 {% endblock %}
