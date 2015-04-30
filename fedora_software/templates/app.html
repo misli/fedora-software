@@ -6,7 +6,7 @@
 {% block content %}
 
     <div style="float: right; height: 150px; padding: 20px; ">
-    <a href="javascript:alert('sudo dnf install {{ app.pkgname }}')" class="btn btn-primary"> {% trans "Install" %}</a>
+    <a href="javascript:alert('sudo dnf install {{ app.get_pkgname }}')" class="btn btn-primary"> {% trans "Install" %}</a>
     </div>
 
     <img src="/static/images/icons/{{ app.get_icon_url }}" alt="" style="float: left; padding: 10px 20px 10px 20px;"/>
@@ -57,7 +57,7 @@ function setBigScreenshot(url) {
     Version: {{ app.get_version }} <br/>
     Size: 40 MB <br/> 
     Developer: Gnome <br/>
-    <a href="https://admin.fedoraproject.org/pkgdb/package/{{ app.pkgname }}/"> PkgDB </a> <br/>
-    <a href="https://apps.fedoraproject.org/packages/{{ app.pkgname }}">Fedora packages</a>
+    <a href="https://admin.fedoraproject.org/pkgdb/package/{{ app.get_pkgname }}/"> PkgDB </a> <br/>
+    <a href="https://apps.fedoraproject.org/packages/{{ app.get_pkgname }}">Fedora packages</a>
 
 {% endblock %}

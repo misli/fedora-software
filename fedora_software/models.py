@@ -101,6 +101,10 @@ class Component(models.Model):
             except ComponentDescription.DoesNotExist:
                 return ''
 
+    def get_pkgname(self):
+        if self.type == 'desktop':
+            return self.type_id[:-8];
+
     def get_absolute_url(self):
         if self.type == 'desktop':
             return reverse('app', args=(self.type_id[:-8],))
