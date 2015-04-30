@@ -5,6 +5,10 @@
 
 {% block content %}
 
+    <div style="float: right; height: 150px; padding: 20px; ">
+    <a href="javascript:alert('sudo dnf install {{ app.pkgname }}')" class="btn btn-primary"> {% trans "Install" %}</a>
+    </div>
+
     <img src="/static/images/icons/{{ app.get_icon_url }}" alt="" style="float: left; padding: 10px 20px 10px 20px;"/>
     <h1>{{ app.get_name }}</h1>
 
