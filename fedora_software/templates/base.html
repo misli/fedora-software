@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n fedora_software %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,7 @@
 
     <!-- Bootstrap -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
     <link href="/static/css/fedora-software.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -57,10 +58,17 @@
         </li>
         <li>
             {% if request.user.is_authenticated %}
-                <span> {{ request.user.first_name }} {{ request.user.last_name }} </span>
-                <small> -  <a href='{% url "fas-logout" %}'> Log out </a> </small>
+<li class="dropdown"> 
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ request.user.email|avatar_url }}?s=40" class="profile-image" /> 
+  {{ request.user.first_name }} {{ request.user.last_name }}
+  </a>   <ul class="dropdown-menu" role="menu">
+    <li>  <a href='{% url "fas-logout" %}'> <i class="fa fa-sign-out"></i> {% trans "Log out" %} </a> </li>
+</ul>
+</li>
+                <span>  </span>
+                <small> -   </small>
             {% else %}
-                <small> <a href='{% url "fas-login" %}?next={{ request.path }}'>Log in</a> </small>
+                <a href='{% url "fas-login" %}?next={{ request.path }}'><i class="fa fa-sign-in"></i>  {% trans "Log in" %}</a>
             {% endif %}
         </li>
         </ul> <!-- .nav navbar-nav navbar-right -->
