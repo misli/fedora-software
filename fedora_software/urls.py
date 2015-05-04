@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^category/(?P<slug>.*)$', CategoryView.as_view(), name='category'),
     url(r'^faq$', FaqView.as_view(), name='faq'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    url('', include('fas.urls')),
 )
