@@ -65,8 +65,6 @@
     <li>  <a href='{% url "fas-logout" %}'> <i class="fa fa-sign-out"></i> {% trans "Log out" %} </a> </li>
 </ul>
 </li>
-                <span>  </span>
-                <small> -   </small>
             {% else %}
                 <a href='{% url "fas-login" %}?next={{ request.path }}'><i class="fa fa-sign-in"></i>  {% trans "Log in" %}</a>
             {% endif %}
