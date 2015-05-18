@@ -117,3 +117,8 @@ a:hover#featured_app_href #carousel-featured {
     width: 30px;
     height: 30px;
 }
+
+.social_links > a > img {
+  width: 24px;
+  height: 24px;
+}

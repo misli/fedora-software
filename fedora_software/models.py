@@ -74,6 +74,9 @@ class Component(models.Model):
     class Meta:
         unique_together = [('type', 'type_id')]
 
+    def get_url(self):
+        return "/apps/" +self.pkgname;
+
     def get_name(self):
         try:
             return self.names.get(lang=get_language()).name
