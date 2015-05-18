@@ -6,12 +6,12 @@ import sys
 
 from datetime import datetime
 from django.conf import settings
+from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
 from django.db import transaction
 from django.utils.timezone import utc
 from xml.etree import ElementTree
 
-from . import LoggingBaseCommand
 from ...models import *
 
 
@@ -23,12 +23,11 @@ _space_re   = re.compile(r'\s+')
 def slugify(name):
     return _space_re.sub('-', _case_re.sub(r'\1-\2', name)).lower()
 
-class Command(LoggingBaseCommand):
+class Command(BaseCommand):
     args = '<xml file>'
     help = 'Import data from appstream-data.'
 
     def handle(self, *args, **options):
-        self.configure_logging(options['verbosity'])
 
         # check arguments
         if len(args) == 1:

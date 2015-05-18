@@ -5,23 +5,21 @@ import ConfigParser
 import re
 
 from django.conf import settings
+from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
 from django.db import transaction
 
-from . import LoggingBaseCommand
 from ...models import *
 
 
 logger = logging.getLogger(__name__)
 
 
-class Command(LoggingBaseCommand):
+class Command(BaseCommand):
     args = '<ini file>'
     help = 'Import data from gnome-software.'
 
     def handle(self, *args, **options):
-        self.configure_logging(options['verbosity'])
-
 
         # check arguments
         ini_file = '/usr/share/gnome-software/featured.ini'
