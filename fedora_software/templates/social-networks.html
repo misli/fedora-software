@@ -1,0 +1,11 @@
+{% load i18n %}
+
+    <span class="social_links">
+    <a data-provider="facebook" target="_blank" rel="nofollow" title="{% trans "Share on Facebook" %}" href="http://www.facebook.com/sharer.php?u={{ url }}" ><img alt="facebook" title="{% trans "Share on Facebook" %}" src="/static/images/social/facebook.png" /></a>
+    <a data-provider="twitter" target="_blank" rel="nofollow" title="{% trans "Share on Twitter" %}" href="http://twitter.com/share?url={{ url }}&amp;text={{ title }}" ><img alt="twitter" title="{% trans "Share on Twitter" %}" src="/static/images/social/twitter.png" /></a>
+    <a data-provider="google_plus" target="_blank" rel="nofollow" title="{% trans "Share on Google+" %}" href="https://plus.google.com/share?url={{ url }}"><img alt="google_plus" title="{% trans "Share on Google+" %}" src="/static/images/social/google_plus.png" /></a>
+    <a data-provider="reddit" target="_blank" rel="nofollow" title="{% trans "Share on Reddit" %}" href="http://www.reddit.com/submit?url={{ url }}&amp;title={{ title }}"><img alt="reddit" title="{% trans "Share on Reddit" %}" src="/static/images/social/reddit.png" /></a>
+    <a data-provider="pinterest" target="_blank" rel="nofollow" title="{% trans "Pin it with Pinterest" %}" href="http://pinterest.com/pin/create/button/?url={{ url }}&amp;media=&#038;description={{ title }}"><img alt="pinterest" title="{% trans "Pin it with Pinterest" %}" src="/static/images/social/pinterest.png" /></a>
+    <a data-provider="linkedin" target="_blank" rel="nofollow" title="{% trans "Share on Linkedin" %}" href="http://www.linkedin.com/shareArticle?mini=true&#038;url={{ url }}&amp;title={{ title }}"><img alt="linkedin" title="{% trans "Share on Linkedin" %}" src="/static/images/social/linkedin.png" /></a>
+    </span>
+

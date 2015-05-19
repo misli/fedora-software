@@ -63,13 +63,6 @@ function setBigScreenshot(url) {
 
     </br>
 
-    <span class="social_links">
-    <a data-provider="facebook" target="_blank" rel="nofollow" title="{% trans "Share on Facebook" %}" href="http://www.facebook.com/sharer.php?u={{ app.get_url }}" ><img alt="facebook" title="{% trans "Share on Facebook" %}" src="/static/images/social/facebook.png" /></a>
-    <a data-provider="twitter" target="_blank" rel="nofollow" title="{% trans "Share on Twitter" %}" href="http://twitter.com/share?url={{ app.get_url }}&amp;text={{ app.get_name }}" ><img alt="twitter" title="{% trans "Share on Twitter" %}" src="/static/images/social/twitter.png" /></a>
-    <a data-provider="google_plus" target="_blank" rel="nofollow" title="{% trans "Share on Google+" %}" href="https://plus.google.com/share?url={{ app.get_url }}"><img alt="google_plus" title="{% trans "Share on Google+" %}" src="/static/images/social/google_plus.png" /></a>
-    <a data-provider="reddit" target="_blank" rel="nofollow" title="{% trans "Share on Reddit" %}" href="http://www.reddit.com/submit?url={{ app.get_url }}&amp;title={{ app.get_name }}"><img alt="reddit" title="{% trans "Share on Reddit" %}" src="/static/images/social/reddit.png" /></a>
-    <a data-provider="pinterest" target="_blank" rel="nofollow" title="{% trans "Pin it with Pinterest" %}" href="http://pinterest.com/pin/create/button/?url={{ app.get_url }}&amp;media=&#038;description={{ app.get_name }}"><img alt="pinterest" title="{% trans "Pin it with Pinterest" %}" src="/static/images/social/pinterest.png" /></a>
-    <a data-provider="linkedin" target="_blank" rel="nofollow" title="{% trans "Share on Linkedin" %}" href="http://www.linkedin.com/shareArticle?mini=true&#038;url={{ app.get_url }}&amp;title={{ app.get_name }}"><img alt="linkedin" title="{% trans "Share on Linkedin" %}" src="/static/images/social/linkedin.png" /></a>
-    </span>
+    {% include 'social-networks.html' with url=app.get_url title=app.get_name %}
 
 {% endblock %}
