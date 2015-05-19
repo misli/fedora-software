@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 10:27+0200\n"
+"POT-Creation-Date: 2015-05-19 10:35+0200\n"
 "PO-Revision-Date: 2015-04-29 08:38-0400\n"
 "Last-Translator: Kenneth Guerra <kg2795@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -49,6 +49,22 @@ msgstr "Categoría"
 #: templates/faq.html:4 templates/faq.html.py:8
 msgid "Frequently Asked Questions"
 msgstr "Preguntas Frecuentes"
+
+#: templates/faq.html:10
+msgid "Q: Can I install software directly ?"
+msgstr ""
+
+#: templates/faq.html:12
+msgid "No. Please use dnf or gnome-software instead."
+msgstr ""
+
+#: templates/faq.html:15
+msgid "Q: Who is the consumer of this service?"
+msgstr ""
+
+#: templates/faq.html:17
+msgid "Everyone including other Linux distributions, iOS, and Windows users."
+msgstr ""
 
 #: templates/home.html:4
 msgid "Welcome to Fedora Software"

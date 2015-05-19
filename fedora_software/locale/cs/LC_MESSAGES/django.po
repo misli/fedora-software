@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fedora-software\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 10:27+0200\n"
+"POT-Creation-Date: 2015-05-19 10:35+0200\n"
 "Last-Translator: Jakub Dornak <jdornak@redhat.com>\n"
 "Language: Czech\n"
 "MIME-Version: 1.0\n"
@@ -49,6 +49,22 @@ msgstr "Kategorie"
 #: templates/faq.html:4 templates/faq.html.py:8
 msgid "Frequently Asked Questions"
 msgstr "Nejčastěji kladené otázky"
+
+#: templates/faq.html:10
+msgid "Q: Can I install software directly ?"
+msgstr "O: Můžu nainstalovat software přímo?"
+
+#: templates/faq.html:12
+msgid "No. Please use dnf or gnome-software instead."
+msgstr "Ne. Prosím použite dnf nebo gnome-software."
+
+#: templates/faq.html:15
+msgid "Q: Who is the consumer of this service?"
+msgstr "O: Pro koho je tato služba určena?"
+
+#: templates/faq.html:17
+msgid "Everyone including other Linux distributions, iOS, and Windows users."
+msgstr "Pro každého včetně uživatelů ostatních Linuxových distribucí, iOS nebo uživatelů Windows."
 
 #: templates/home.html:4
 msgid "Welcome to Fedora Software"
