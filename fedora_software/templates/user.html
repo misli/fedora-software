@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n fedora_software %}
+
+{% block title %}{% trans "User details" %} {% endblock %}
+
+{% block content %}
+
+    <h1>{{ request.user.first_name }} {{ request.user.last_name }} </h1>
+
+    <a href="https://www.libravatar.org/"><img src="{{ request.user.email|avatar_url }}?s=200" /></a>
+    
+<br/><br/>
+<div>    
+    {% trans "User: " %}{{ request.user }} <br/>
+    {% trans "Email: " %}{{ request.user.email }} <br/>
+</div>
+
+{% if request.user.is_authenticated %}
+    <h2> {% trans "Select language" %} </h2>
+
+    
+    <form action="/i18n/setlang/" method="post" class="navbar-form">{% csrf_token %}
+            <select name="language" onchange="this.form.submit()" class="form-control">
+              {% for lang in LANGUAGES %}
+                <option value="{{ lang.0 }}" {% ifequal lang.0 LANGUAGE_CODE %}selected="yes"{% endifequal %}> {{ lang.1 }}</option>
+              {% endfor %}
+            <input type="submit" value="{% trans "Save" %}" class="form-control btn-primary"> 
+            </select>
+    </form>
+{% endif %}
+
+    <div style="clear: both;"></div>
+
+{% endblock %}

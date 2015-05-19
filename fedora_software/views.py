@@ -74,3 +74,6 @@ class SearchView(TemplateView):
 
 class FaqView(TemplateView):
     template_name = 'faq.html'
+
+class UserView(TemplateView):
+    template_name = 'user.html'

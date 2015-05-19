@@ -47,6 +47,7 @@
         </div> <!-- form-group -->
       </form>
         </li>
+        {% if not request.user.is_authenticated %}
         <li>
           <form action="/i18n/setlang/" method="post" class="navbar-form">{% csrf_token %}
             <select name="language" onchange="this.form.submit()" class="form-control">
@@ -56,12 +57,14 @@
             </select>
           </form>
         </li>
+        {% endif %}
         <li>
             {% if request.user.is_authenticated %}
 <li class="dropdown"> 
   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ request.user.email|avatar_url }}?s=40" class="profile-image" /> 
   {{ request.user.first_name }} {{ request.user.last_name }}
   </a>   <ul class="dropdown-menu" role="menu">
+    <li>  <a href='/user/'> <i class="fa fa-cog"></i> {% trans "Settings" %} </a> </li>
     <li>  <a href='{% url "fas-logout" %}'> <i class="fa fa-sign-out"></i> {% trans "Log out" %} </a> </li>
 </ul>
 </li>

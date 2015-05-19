@@ -63,6 +63,7 @@ function setBigScreenshot(url) {
 
     </br>
 
-    {% include 'social-networks.html' with url=app.get_url title=app.get_name %}
+
+    {% include 'social-networks.html' with url=request.build_absolute_uri title=app.get_name %}
 
 {% endblock %}

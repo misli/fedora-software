@@ -3,26 +3,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-28 10:35+0200\n"
+"POT-Creation-Date: 2015-05-19 10:27+0200\n"
 "PO-Revision-Date: 2015-04-29 08:38-0400\n"
 "Last-Translator: Kenneth Guerra <kg2795@gmail.com>\n"
 "Language-Team: Spanish\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 3.6.2\n"
 
-#: templates/base.html:45
+#: templates/app.html:9
+msgid "Install"
+msgstr ""
+
+#: templates/base.html:46
 msgid "Search"
 msgstr "Buscar"
 
-#: templates/base.html:71
+#: templates/base.html:67
+msgid "Settings"
+msgstr ""
+
+#: templates/base.html:68
+msgid "Log out"
+msgstr ""
+
+#: templates/base.html:72
+msgid "Log in"
+msgstr ""
+
+#: templates/base.html:88
 msgid "Fedora"
 msgstr "Fedora"
 
-#: templates/base.html:71
+#: templates/base.html:88
 msgid "FAQ"
 msgstr "Preguntas frecuentes (FAQ)"
 
@@ -42,10 +58,54 @@ msgstr "Bienvenido a Fedora Software"
 msgid "Featured apps"
 msgstr "Aplicaciones destacadas"
 
-#: templates/home.html:34
+#: templates/home.html:29
 msgid "Categories"
 msgstr "Categorías"
 
 #: templates/search.html:4 templates/search.html.py:8
 msgid "Search results"
 msgstr "Resultados de la búsqueda"
+
+#: templates/social-networks.html:4
+msgid "Share on Facebook"
+msgstr ""
+
+#: templates/social-networks.html:5
+msgid "Share on Twitter"
+msgstr ""
+
+#: templates/social-networks.html:6
+msgid "Share on Google+"
+msgstr ""
+
+#: templates/social-networks.html:7
+msgid "Share on Reddit"
+msgstr ""
+
+#: templates/social-networks.html:8
+msgid "Pin it with Pinterest"
+msgstr ""
+
+#: templates/social-networks.html:9
+msgid "Share on Linkedin"
+msgstr ""
+
+#: templates/user.html:4
+msgid "User details"
+msgstr ""
+
+#: templates/user.html:14
+msgid "User: "
+msgstr ""
+
+#: templates/user.html:15
+msgid "Email: "
+msgstr ""
+
+#: templates/user.html:19
+msgid "Select language"
+msgstr ""
+
+#: templates/user.html:27
+msgid "Save"
+msgstr ""
