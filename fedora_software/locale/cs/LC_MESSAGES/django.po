@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fedora-software\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 11:04+0200\n"
+"POT-Creation-Date: 2015-05-20 09:23+0200\n"
 "Last-Translator: Jakub Dornak <jdornak@redhat.com>\n"
 "Language: Czech\n"
 "MIME-Version: 1.0\n"
@@ -42,6 +42,10 @@ msgstr "Fedora"
 msgid "FAQ"
 msgstr "FAQ"
 
+#: templates/base.html:88
+msgid "Source code"
+msgstr "Zdrojový kód"
+
 #: templates/category.html:4 templates/category.html.py:8
 msgid "Category"
 msgstr "Kategorie"
@@ -67,6 +71,26 @@ msgid "Everyone including other Linux distributions, iOS, and Windows users."
 msgstr ""
 "Pro každého včetně uživatelů ostatních Linuxových distribucí, iOS nebo "
 "uživatelů Windows."
+
+#: templates/faq.html:20
+msgid "Q: Did you considered feature XYZ ?"
+msgstr "O: Přemýšleli ste o vlasnosti XYZ ?"
+
+#: templates/faq.html:22
+msgid "Maybe. Please open the issue at github and tag it as enhancement "
+msgstr "Možná. Prosím otevřete issue na github a označte to jako vylepšení"
+
+#: templates/faq.html:25
+msgid "Q: Something is broken. What should I do ?"
+msgstr "O: Něco je rozbité. Co mám dělat?"
+
+#: templates/faq.html:27
+msgid ""
+"This software is in early stage of development. Bugs are in every piece of "
+"software. Maybe we don't know about this one. Please open an issue at github."
+msgstr ""
+"Tento software je v rané fázi vývoje. Chyby jsou v každém software. Možná o "
+"té chybě ani nevíme. Prosím otevřete issue na githubu."
 
 #: templates/home.html:4
 msgid "Welcome to Fedora Software"
