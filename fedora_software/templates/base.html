@@ -102,6 +102,9 @@
           'url': 'https://apps.fedoraproject.org/js/data.js',
           'mimeType': 'application/javascript',
           'position': 'bottom-right',
+{% if request.user.is_authenticated %}
+                    'user': '{{ request.user }}',
+{% endif %}
       });
     </script>
   </body>
