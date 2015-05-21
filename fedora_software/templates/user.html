@@ -20,7 +20,7 @@
 
     
     <form action="/i18n/setlang/" method="post" class="navbar-form">{% csrf_token %}
-            <select name="language" onchange="this.form.submit()" class="form-control">
+            <select name="language" class="form-control">
               {% for lang in LANGUAGES %}
                 <option value="{{ lang.0 }}" {% ifequal lang.0 LANGUAGE_CODE %}selected="yes"{% endifequal %}> {{ lang.1 }}</option>
               {% endfor %}
