@@ -55,15 +55,12 @@ function setBigScreenshot(url) {
     <br/> <br/>
     Licence: {{ app.project_license }}<br/>
     Version: {{ app.get_version }} <br/>
-    Size: 40 MB <br/> 
-    Developer: Gnome <br/>
-
-    <a href="https://admin.fedoraproject.org/pkgdb/package/{{ app.get_pkgname }}/"> PkgDB </a> <br/>
-    <a href="https://apps.fedoraproject.org/packages/{{ app.get_pkgname }}">Fedora packages</a> <br/>
-
-    </br>
-
+    <br/>
 
     {% include 'social-networks.html' with url=request.build_absolute_uri title=app.get_name %}
+
+    <script>
+      var package = '{{ app.get_pkgname }}';
+    </script>
 
 {% endblock %}

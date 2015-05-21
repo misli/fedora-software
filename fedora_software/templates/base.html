@@ -98,14 +98,20 @@
     <script src="https://apps.fedoraproject.org/fedmenu/js/fedora-libravatar.js"></script>
     <script src="https://apps.fedoraproject.org/fedmenu/js/fedmenu.js"></script>
     <script>
-      fedmenu({
+    var fedmenu_params = {
           'url': 'https://apps.fedoraproject.org/js/data.js',
           'mimeType': 'application/javascript',
           'position': 'bottom-right',
 {% if request.user.is_authenticated %}
-                    'user': '{{ request.user }}',
+          'user': '{{ request.user }}',
 {% endif %}
-      });
+      }
+      if (typeof package !== "undefined") {
+       fedmenu_params.package = package;
+      }
+      console.log(fedmenu_params);
+      fedmenu(fedmenu_params);
+      console.log(package);
     </script>
   </body>
 </html>
