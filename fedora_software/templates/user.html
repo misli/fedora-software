@@ -7,7 +7,7 @@
 
     <h1>{{ request.user.first_name }} {{ request.user.last_name }} </h1>
 
-    <a href="https://www.libravatar.org/"><img src="{{ request.user.email|avatar_url }}?s=200" /></a>
+    <a href="https://www.libravatar.org/account/login/?next=/account/add_email/"><img src="{{ request.user.email|avatar_url }}?s=200" /></a>
     
 <br/><br/>
 <div>    
