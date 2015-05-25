@@ -9,7 +9,7 @@ Installation
 
 Install appstream-data, gnome-software and httpd stuff:
 
-    dnf install appstream-data gnome-software httpd mod_wsgi python-django python-openid
+    dnf install appstream-data gnome-software httpd mod_wsgi python-django python-openid python-django-fas
 
 Install the package:
 
