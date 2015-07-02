@@ -91,3 +91,32 @@ Update translations:
 The translations could be done online at fedora zanata.
 
 https://fedora.zanata.org/project/view/fedora-software
+
+
+Test Suite
+------------
+An automated test suite is currently in development state.
+If you want to try it, please follow these steps.
+
+Create a development instance of fedora-software.
+
+Install the browser Mozilla Firefox via dnf:
+
+    dnf install firefox
+
+Install 'selenium' and 'unipath' via pip or dnf:
+
+    pip install selenium unipath
+    dnf install python-selenium python-unipath
+
+Create the testing fixtures retreiving data from your db:
+
+    python bin/fedora-software-fixtures.py
+
+Run the development server:
+
+    ./manage.py runserver
+
+Run the full test suite:
+
+    ./manage.py test

@@ -4,3 +4,4 @@
 build/
 dist/
 fedora_software.egg-info/
+fedora_software/fixtures/fedora_software_testing.json
