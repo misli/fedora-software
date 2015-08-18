@@ -9,7 +9,10 @@ This module tests fedora-software's main functionality by user's point
 of view.
 """
 
+
+import os
 from selenium import webdriver
+from unipath import Path
 from django.test import TestCase
 from fedora_software.models import FeaturedApp
 
@@ -66,4 +69,24 @@ class FunctionalTest(TestCase):
                 break
 
         self.assertIn(app_name_from_link, app_type_id)
+
+    def test_if_carousel_displays_a_valid_image(self):
+        """
+        Test if the image displayed by 'carousel-featured' exists
+        """
+        # She admires the big logo of the 'FeaturedApp' which is
+        # currently displayed.
+        carousel = self.browser.find_element_by_id("carousel-featured")
+
+        carousel_html = carousel.value_of_css_property("background")
+        carousel_image = carousel_html.split('url("')[1]
+        carousel_path = carousel_image.split('") no-repeat')[0][1:]
+        project_path = Path(__file__).ancestor(2)
+        fedorasoftware_app_path = project_path.child("fedora_software")
+        carousel_file = os.path.join(
+                fedorasoftware_app_path,
+                carousel_path
+                )
+
+        self.assertTrue(os.path.exists(carousel_file))
 
