@@ -94,6 +94,28 @@ class ModelTest(HelperSuite):
         saved_components = Component.objects.all()
         self.assertEqual(saved_components.count(), 2)
 
+    def test_component_get_absolute_url(self):
+        """
+        Tests Component's method 'get_absolute_url'
+
+        If the Component's type equals to 'desktop', it should return a
+        valid url.
+
+        If the Component's type doesn't equal to 'desktop', it should
+        raise an Exception.
+        """
+        first_component = self.create_sample_component(
+                type_id="sample.desktop", 
+                type_="desktop"
+                )
+        self.assertEqual(first_component.get_absolute_url(), "/apps/sample")
+
+        second_component = self.create_sample_component(
+                type_id="test.abstract",
+                type_="abstract"
+                )
+        self.assertRaises(Exception, second_component.get_absolute_url)
+
     def test_create_featured_app(self):
         """
         Tests the creation of a FeaturedApp
