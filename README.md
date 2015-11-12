@@ -113,10 +113,6 @@ Create the testing fixtures retreiving data from your db:
 
     python bin/fedora-software-fixtures.py
 
-Run the development server:
-
-    ./manage.py runserver
-
 Run the full test suite:
 
     ./manage.py test

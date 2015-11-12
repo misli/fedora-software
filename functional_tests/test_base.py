@@ -13,11 +13,12 @@ of view.
 import os
 from selenium import webdriver
 from unipath import Path
-from django.test import TestCase
+from django.conf import settings
+from django.test import LiveServerTestCase
 from fedora_software.models import FeaturedApp
 
 
-class FunctionalTest(TestCase):
+class FunctionalTest(LiveServerTestCase):
     """
     Suite of Acceptance tests.
     """
@@ -26,9 +27,12 @@ class FunctionalTest(TestCase):
         """
         Sets up a testing environment.
         """
+        if settings.DEBUG == False: #workaround, will be replaced ASAP.
+            settings.DEBUG = True
+
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
-        self.browser.get("http://localhost:8000")
+        self.browser.get("http://localhost:8081")
 
     def tearDown(self):
         """
