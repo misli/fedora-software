@@ -1,10 +1,11 @@
+# Jozef Mlich <jmlich@redhat.com>, 2015. #zanata
 # Piotr Drąg <piotrdrag@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 11:04+0200\n"
-"PO-Revision-Date: 2015-05-09 02:38-0400\n"
+"POT-Creation-Date: 2015-09-07 12:26+0200\n"
+"PO-Revision-Date: 2015-08-27 10:09-0400\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish\n"
 "Language: pl\n"
@@ -13,11 +14,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2)\n"
-"X-Generator: Zanata 3.6.2\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #: templates/app.html:9
 msgid "Install"
-msgstr ""
+msgstr "Zainstaluj"
 
 #: templates/base.html:46
 msgid "Search"
@@ -25,15 +26,15 @@ msgstr "Wyszukaj"
 
 #: templates/base.html:67
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 #: templates/base.html:68
 msgid "Log out"
-msgstr ""
+msgstr "Wyloguj"
 
 #: templates/base.html:72
 msgid "Log in"
-msgstr ""
+msgstr "Zaloguj"
 
 #: templates/base.html:88
 msgid "Fedora"
@@ -42,6 +43,10 @@ msgstr "Fedora"
 #: templates/base.html:88
 msgid "FAQ"
 msgstr "FAQ"
+
+#: templates/base.html:88
+msgid "Source code"
+msgstr "Kod źródłowy"
 
 #: templates/category.html:4 templates/category.html.py:8
 msgid "Category"
@@ -53,19 +58,44 @@ msgstr "Najczęściej zadawane pytania"
 
 #: templates/faq.html:10
 msgid "Q: Can I install software directly ?"
-msgstr ""
+msgstr "P: Czy można bezpośrednio instalować oprogramowanie?"
 
 #: templates/faq.html:12
 msgid "No. Please use dnf or gnome-software instead."
-msgstr ""
+msgstr "Nie. Prosimy używać programu DNF lub Menedżera oprogramowania GNOME."
 
 #: templates/faq.html:15
 msgid "Q: Who is the consumer of this service?"
-msgstr ""
+msgstr "P: Dla kogo przeznaczony jest ten serwis?"
 
 #: templates/faq.html:17
 msgid "Everyone including other Linux distributions, iOS, and Windows users."
 msgstr ""
+"Dla każdego, także użytkowników innych dystrybucji systemu Linux, iOS i "
+"Windows."
+
+#: templates/faq.html:20
+msgid "Q: Did you considered feature XYZ ?"
+msgstr "P: Czy planowana jest funkcja XYZ?"
+
+#: templates/faq.html:22
+msgid "Maybe. Please open the issue at github and tag it as enhancement "
+msgstr ""
+"Może. Prosimy otworzyć zgłoszenie w serwisie GitHub (w języku angielskim) i "
+"oznaczyć je jako ulepszenie."
+
+#: templates/faq.html:25
+msgid "Q: Something is broken. What should I do ?"
+msgstr "P: Coś się zepsuło. Co mam zrobić?"
+
+#: templates/faq.html:27
+msgid ""
+"This software is in early stage of development. Bugs are in every piece of "
+"software. Maybe we don't know about this one. Please open an issue at github."
+msgstr ""
+"To oprogramowanie jest we wczesnej fazie rozwoju. Błędy zdarzają się w "
+"każdym oprogramowaniu. Może programiści nie wiedzą o tym błędzie. Prosimy "
+"otworzyć zgłoszenie w serwisie GitHub (w języku angielskim)."
 
 #: templates/home.html:4
 msgid "Welcome to Fedora Software"
@@ -85,44 +115,44 @@ msgstr "Wyniki wyszukiwania"
 
 #: templates/social-networks.html:4
 msgid "Share on Facebook"
-msgstr ""
+msgstr "Opublikuj na Facebooku"
 
 #: templates/social-networks.html:5
 msgid "Share on Twitter"
-msgstr ""
+msgstr "Opublikuj na Twitterze"
 
 #: templates/social-networks.html:6
 msgid "Share on Google+"
-msgstr ""
+msgstr "Opublikuj w Google+"
 
 #: templates/social-networks.html:7
 msgid "Share on Reddit"
-msgstr ""
+msgstr "Opublikuj na Reddicie"
 
 #: templates/social-networks.html:8
 msgid "Pin it with Pinterest"
-msgstr ""
+msgstr "Przypnij w Pinterest"
 
 #: templates/social-networks.html:9
 msgid "Share on Linkedin"
-msgstr ""
+msgstr "Opublikuj na LinkedIn"
 
 #: templates/user.html:4
 msgid "User details"
-msgstr ""
+msgstr "Informacje o użytkowniku"
 
 #: templates/user.html:14
 msgid "User: "
-msgstr ""
+msgstr "Użytkownik: "
 
 #: templates/user.html:15
 msgid "Email: "
-msgstr ""
+msgstr "Adres e-mail: "
 
 #: templates/user.html:19
 msgid "Select language"
-msgstr ""
+msgstr "Wybór języka"
 
 #: templates/user.html:27
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"

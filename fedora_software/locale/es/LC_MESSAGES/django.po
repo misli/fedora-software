@@ -1,9 +1,9 @@
-# Kenneth Guerra <kg2795@gmail.com>, 2015. #zanata
+# Jozef Mlich <jmlich@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 11:04+0200\n"
+"POT-Creation-Date: 2015-09-07 12:26+0200\n"
 "PO-Revision-Date: 2015-04-29 08:38-0400\n"
 "Last-Translator: Kenneth Guerra <kg2795@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 3.6.2\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #: templates/app.html:9
 msgid "Install"
@@ -42,6 +42,10 @@ msgstr "Fedora"
 msgid "FAQ"
 msgstr "Preguntas frecuentes (FAQ)"
 
+#: templates/base.html:88
+msgid "Source code"
+msgstr ""
+
 #: templates/category.html:4 templates/category.html.py:8
 msgid "Category"
 msgstr "Categoría"
@@ -64,6 +68,24 @@ msgstr ""
 
 #: templates/faq.html:17
 msgid "Everyone including other Linux distributions, iOS, and Windows users."
+msgstr ""
+
+#: templates/faq.html:20
+msgid "Q: Did you considered feature XYZ ?"
+msgstr ""
+
+#: templates/faq.html:22
+msgid "Maybe. Please open the issue at github and tag it as enhancement "
+msgstr ""
+
+#: templates/faq.html:25
+msgid "Q: Something is broken. What should I do ?"
+msgstr ""
+
+#: templates/faq.html:27
+msgid ""
+"This software is in early stage of development. Bugs are in every piece of "
+"software. Maybe we don't know about this one. Please open an issue at github."
 msgstr ""
 
 #: templates/home.html:4

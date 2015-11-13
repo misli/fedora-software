@@ -1,11 +1,12 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2015.
+# Jozef Mlich <jmlich@redhat.com>, 2015. #zanata
 # Yuri Chornoivan <yurchor@ukr.net>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 11:04+0200\n"
-"PO-Revision-Date: 2015-05-10 02:20-0400\n"
+"POT-Creation-Date: 2015-09-07 12:26+0200\n"
+"PO-Revision-Date: 2015-08-28 12:28-0400\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -14,11 +15,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Zanata 3.6.2\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #: templates/app.html:9
 msgid "Install"
-msgstr ""
+msgstr "Встановити"
 
 #: templates/base.html:46
 msgid "Search"
@@ -26,15 +27,15 @@ msgstr "Пошук"
 
 #: templates/base.html:67
 msgid "Settings"
-msgstr ""
+msgstr "Параметри"
 
 #: templates/base.html:68
 msgid "Log out"
-msgstr ""
+msgstr "Вийти"
 
 #: templates/base.html:72
 msgid "Log in"
-msgstr ""
+msgstr "Увійти"
 
 #: templates/base.html:88
 msgid "Fedora"
@@ -43,6 +44,10 @@ msgstr "Fedora"
 #: templates/base.html:88
 msgid "FAQ"
 msgstr "Поширені питання"
+
+#: templates/base.html:88
+msgid "Source code"
+msgstr "Початковий код"
 
 #: templates/category.html:4 templates/category.html.py:8
 msgid "Category"
@@ -54,19 +59,45 @@ msgstr "Поширені запитання"
 
 #: templates/faq.html:10
 msgid "Q: Can I install software directly ?"
-msgstr ""
+msgstr "П: Чи можна встановити програмне забезпечення безпосередньо?"
 
 #: templates/faq.html:12
 msgid "No. Please use dnf or gnome-software instead."
-msgstr ""
+msgstr "Ні. Будь ласка, скористайтеся для цього dnf або gnome-software."
 
 #: templates/faq.html:15
 msgid "Q: Who is the consumer of this service?"
-msgstr ""
+msgstr "П: Для кого призначено цю службу?"
 
 #: templates/faq.html:17
 msgid "Everyone including other Linux distributions, iOS, and Windows users."
 msgstr ""
+"Для будь-кого, зокрема користувачів інших дистрибутивів Linux, iOS та "
+"Windows."
+
+#: templates/faq.html:20
+msgid "Q: Did you considered feature XYZ ?"
+msgstr "П: Чи маєте ви намір реалізувати можливість XYZ?"
+
+#: templates/faq.html:22
+msgid "Maybe. Please open the issue at github and tag it as enhancement "
+msgstr ""
+"Можливо. Будь ласка, створіть відповідне повідомлення у системі запитів на "
+"сторінці github і позначте його міткою «enhancement»."
+
+#: templates/faq.html:25
+msgid "Q: Something is broken. What should I do ?"
+msgstr "П: Щось працює не так. Що робити?"
+
+#: templates/faq.html:27
+msgid ""
+"This software is in early stage of development. Bugs are in every piece of "
+"software. Maybe we don't know about this one. Please open an issue at github."
+msgstr ""
+"Це програмне забезпечення перебуває на початковому етапі розробки. Вади є у "
+"всіх компонентах програмного забезпечення. Можливо, ми ще не знаємо про цю "
+"ваду. Будь ласка, створіть відповідне повідомлення про ваду на сторінці "
+"github."
 
 #: templates/home.html:4
 msgid "Welcome to Fedora Software"
@@ -86,44 +117,44 @@ msgstr "Результати пошуку"
 
 #: templates/social-networks.html:4
 msgid "Share on Facebook"
-msgstr ""
+msgstr "Поділитися у Facebook"
 
 #: templates/social-networks.html:5
 msgid "Share on Twitter"
-msgstr ""
+msgstr "Поділитися у Twitter"
 
 #: templates/social-networks.html:6
 msgid "Share on Google+"
-msgstr ""
+msgstr "Поділитися у Google+"
 
 #: templates/social-networks.html:7
 msgid "Share on Reddit"
-msgstr ""
+msgstr "Поділитися у Reddit"
 
 #: templates/social-networks.html:8
 msgid "Pin it with Pinterest"
-msgstr ""
+msgstr "Пришпилити на Pinterest"
 
 #: templates/social-networks.html:9
 msgid "Share on Linkedin"
-msgstr ""
+msgstr "Поділитися у Linkedin"
 
 #: templates/user.html:4
 msgid "User details"
-msgstr ""
+msgstr "Подробиці щодо користувача"
 
 #: templates/user.html:14
 msgid "User: "
-msgstr ""
+msgstr "Користувач: "
 
 #: templates/user.html:15
 msgid "Email: "
-msgstr ""
+msgstr "Ел. пошта:"
 
 #: templates/user.html:19
 msgid "Select language"
-msgstr ""
+msgstr "Виберіть мову"
 
 #: templates/user.html:27
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"

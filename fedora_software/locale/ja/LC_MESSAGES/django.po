@@ -1,39 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Jozef Mlich <jmlich@redhat.com>, 2015. #zanata
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015. #zanata
+# ooyama yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-07 12:26+0200\n"
-"PO-Revision-Date: 2015-08-24 07:54-0400\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
-"Language-Team: Catalan\n"
-"Language: ca\n"
+"PO-Revision-Date: 2015-08-15 02:54-0400\n"
+"Last-Translator: \n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: Zanata 3.7.1\n"
 
 #: templates/app.html:9
 msgid "Install"
-msgstr "Instal·la"
+msgstr "インストール"
 
 #: templates/base.html:46
 msgid "Search"
-msgstr "Cerca"
+msgstr "検索"
 
 #: templates/base.html:67
 msgid "Settings"
-msgstr "Ajustos"
+msgstr "設定"
 
 #: templates/base.html:68
 msgid "Log out"
-msgstr "Tanca la sessió"
+msgstr "ログアウト"
 
 #: templates/base.html:72
 msgid "Log in"
-msgstr "Inicia la sessió"
+msgstr "ログイン"
 
 #: templates/base.html:88
 msgid "Fedora"
@@ -41,91 +45,86 @@ msgstr "Fedora"
 
 #: templates/base.html:88
 msgid "FAQ"
-msgstr "PMF"
+msgstr ""
 
 #: templates/base.html:88
 msgid "Source code"
-msgstr "Codi font"
+msgstr "ソースコード"
 
 #: templates/category.html:4 templates/category.html.py:8
 msgid "Category"
-msgstr "Categoria"
+msgstr "カテゴリー"
 
 #: templates/faq.html:4 templates/faq.html.py:8
 msgid "Frequently Asked Questions"
-msgstr "Preguntes més freqüents"
+msgstr "よくある質問"
 
 #: templates/faq.html:10
 msgid "Q: Can I install software directly ?"
-msgstr "P: Puc instal·lar directament programari?"
+msgstr "Q:ソフトウェアを私は直接的にインストールできますか？"
 
 #: templates/faq.html:12
 msgid "No. Please use dnf or gnome-software instead."
-msgstr "No. Si us plau, utilitzeu en lloc seu dnf o gnome-software."
+msgstr ""
+"いいえ。代わりに dnf または gnome ソフトウェアセンター を使用してください。"
 
 #: templates/faq.html:15
 msgid "Q: Who is the consumer of this service?"
-msgstr "P: Qui és el consumidor d'aquest servei?"
+msgstr "Q: 誰がこのサービスの消費者ですか？"
 
 #: templates/faq.html:17
 msgid "Everyone including other Linux distributions, iOS, and Windows users."
 msgstr ""
-"Tothom, incloent les altres distribucions de Linux, iOS i els usuaris de "
-"Windows."
 
 #: templates/faq.html:20
 msgid "Q: Did you considered feature XYZ ?"
-msgstr "P: Vàreu considerar la característica XYZ?"
+msgstr ""
 
 #: templates/faq.html:22
 msgid "Maybe. Please open the issue at github and tag it as enhancement "
 msgstr ""
-"Potser. Si us plau, obriu la incidència a github i etiqueteu-la com a millora"
 
 #: templates/faq.html:25
 msgid "Q: Something is broken. What should I do ?"
-msgstr "P: Alguna cosa s'ha trencat. Què hauria de fer?"
+msgstr "Q: 何かが壊れているようです。私はどうすべきでしょうか？"
 
 #: templates/faq.html:27
 msgid ""
 "This software is in early stage of development. Bugs are in every piece of "
 "software. Maybe we don't know about this one. Please open an issue at github."
 msgstr ""
-"Aquest programari està en l'etapa inicial de desenvolupament. Els errors de "
-"programari estan en cadascuna de les peces del programari. Potser ho "
-"desconeixem. Si us plau, obriu una incidència a github."
 
 #: templates/home.html:4
 msgid "Welcome to Fedora Software"
-msgstr "Benvinguts a Fedora Software"
+msgstr "Fedora ソフトウェア へようこそ"
 
 #: templates/home.html:8
 msgid "Featured apps"
-msgstr "Aplicacions destacades"
+msgstr ""
 
 #: templates/home.html:29
 msgid "Categories"
-msgstr "Categories"
+msgstr "カテゴリー"
 
 #: templates/search.html:4 templates/search.html.py:8
 msgid "Search results"
-msgstr "Resultats de la cerca"
+msgstr "検索結果"
 
 #: templates/social-networks.html:4
 msgid "Share on Facebook"
-msgstr "Comparteix a Facebook"
+msgstr ""
 
 #: templates/social-networks.html:5
 msgid "Share on Twitter"
-msgstr "Comparteix a Twitter"
+msgstr ""
 
 #: templates/social-networks.html:6
 msgid "Share on Google+"
-msgstr "Comparteix a Google+"
+msgstr ""
 
 #: templates/social-networks.html:7
 msgid "Share on Reddit"
-msgstr "Comparteix a Reddit"
+msgstr ""
 
 #: templates/social-networks.html:8
 msgid "Pin it with Pinterest"
@@ -133,24 +132,24 @@ msgstr ""
 
 #: templates/social-networks.html:9
 msgid "Share on Linkedin"
-msgstr "Comparteix a Linkedin"
+msgstr ""
 
 #: templates/user.html:4
 msgid "User details"
-msgstr "Detalls de l'usuari"
+msgstr ""
 
 #: templates/user.html:14
 msgid "User: "
-msgstr "Usuari:"
+msgstr "ユーザー: "
 
 #: templates/user.html:15
 msgid "Email: "
-msgstr "Correu electrònic:"
+msgstr "電子メール: "
 
 #: templates/user.html:19
 msgid "Select language"
-msgstr "Selecciona l'idioma"
+msgstr "言語を選択"
 
 #: templates/user.html:27
 msgid "Save"
-msgstr "Desa"
+msgstr "保存する"
