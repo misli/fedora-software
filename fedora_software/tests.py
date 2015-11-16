@@ -59,7 +59,6 @@ class ViewTest(HelperSuite):
         """
         Tests that the HomeView seems to use the correct template
         """
-        # this test should be improved and made more useful
         sample_component = self.create_sample_component(type_id="gimp.desktop")
         self.create_sample_featured_app(component=sample_component)
         response = self.client.get(reverse('home'))
@@ -68,8 +67,9 @@ class ViewTest(HelperSuite):
                 {"LANGUAGES": settings.LANGUAGES[:]}
                 )
         self.assertAlmostEqual(
-                len(response.content.decode())/1000,
-                len(template_html)/1000, 
+                len(response.content.decode()),
+                len(template_html),
+                delta=150
                 )
 
 
