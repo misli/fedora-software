@@ -13,6 +13,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse, resolve
 from django.template.loader import render_to_string
 from django.test import TestCase
+from django.test import RequestFactory
 from fedora_software.views import HomeView
 from fedora_software.models import Component, FeaturedApp
 
@@ -43,6 +44,15 @@ class HelperSuite(TestCase):
         sample_featured_app.save()
         return sample_featured_app
 
+    def mock_as_view(self, view, request, *args, **kwargs):
+        """
+        This is a mock of "as_view()". Returns an instance of view.
+        """
+        view.request = request
+        view.args = args
+        view.kwargs = kwargs
+        return view
+
 
 class ViewTest(HelperSuite):
     """
@@ -71,6 +81,41 @@ class ViewTest(HelperSuite):
                 len(template_html),
                 delta=150
                 )
+    
+    def test_homeview_context_contains_a_featured_app(self):
+        """
+        Tests that HomeView's get_context_data returns a FeaturedApp
+        """
+        sample_component = self.create_sample_component(type_id="gimp.desktop")
+        sample_featuredapp = self.create_sample_featured_app(
+                             component=sample_component)
+        request = RequestFactory().get("/")
+        view = HomeView(template_name="home.html")
+        view = self.mock_as_view(view, request)
+
+        context = view.get_context_data()
+        
+        self.assertIn(sample_featuredapp, context.values())
+
+    def test_homeview_context_contains_only_one_featured_app(self):
+        """
+        Tests that HomeView's get_context_data returns only one FeaturedApp
+        """
+        component_one = self.create_sample_component(type_id="gimp.desktop")
+        component_two = self.create_sample_component(type_id="xterm.desktop")
+        featured_one = self.create_sample_featured_app(component_one)
+        featured_two = self.create_sample_featured_app(component_two)
+        request = RequestFactory().get("/")
+        view = HomeView()
+        view = self.mock_as_view(view, request)
+
+        context = view.get_context_data()
+        context_values = context.values()
+
+        if featured_one in context_values:
+            self.assertNotIn(featured_two, context_values)
+        else:
+            self.assertNotIn(featured_one, context_values)
 
 
 class ModelTest(HelperSuite):
