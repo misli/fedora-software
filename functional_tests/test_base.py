@@ -10,8 +10,10 @@ of view.
 """
 
 
+import logging
 import os
 from selenium import webdriver
+from selenium.webdriver.remote.remote_connection import LOGGER
 from unipath import Path
 from django.conf import settings
 from django.test import LiveServerTestCase
@@ -27,8 +29,8 @@ class FunctionalTest(LiveServerTestCase):
         """
         Sets up a testing environment.
         """
-        if settings.DEBUG == False: #workaround, will be replaced ASAP.
-            settings.DEBUG = True
+        settings.DEBUG = True
+        LOGGER.setLevel(logging.WARNING)
 
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
@@ -82,16 +84,8 @@ class FunctionalTest(LiveServerTestCase):
         # currently displayed.
         carousel = self.browser.find_element_by_id("carousel-featured")
         carousel_html = carousel.value_of_css_property("background")
-        
-        print "#################"
-        print "DEBUGGING:"
         featured_app = self.browser.find_element_by_id("featured_app_href")
         featured_app.get_attribute("href").split("/apps/")[1]
-        print featured_app
-        print "#################"
-        print carousel_html
-        print "#################"
-        
         carousel_image = carousel_html.split('/', 1)[1]
         carousel_image = "/" + carousel_image
         carousel_path = carousel_image.split('") no-repeat')[0][1:]
@@ -102,3 +96,7 @@ class FunctionalTest(LiveServerTestCase):
                 carousel_path
                 )
         self.assertTrue(os.path.exists(carousel_file))
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
