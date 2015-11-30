@@ -63,8 +63,9 @@ def create_testing_fixtures(project_path):
     Creates the fixtures needed by the tests of fedora-software.
     """
     functional_testing_tables = [
-            "fedora_software.FeaturedApp", 
-            "fedora_software.Component"
+            "fedora_software.FeaturedApp",
+            "fedora_software.Component",
+            "fedora_software.ComponentIcon"
             ]
     app_path = project_path.child("fedora_software")
     fixtures_path = app_path.child("fixtures")
